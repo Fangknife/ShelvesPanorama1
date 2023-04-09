@@ -91,29 +91,29 @@ body {
 }
 
 .custom-hotspot {
-    height: 50px;
+    height: 30px;
     width: 50px;
-    background: black;
+    background: none;
 
 }
 
 div.custom-tooltip span {
     visibility: visible;
-    position: absolute;
-    background-color: none;
+    position: relative;
+    background-color: black;
     color: white;
     text-align: center;
     width: 18px;
     padding: 5px 10px;
     margin-left: -220px;
-    right: 10px;
+    right: 24px;
     cursor: pointer;
-    top: 52px;
     font-family: georgia;
 }
 
 div.custom-tooltip:hover span {
     font-weight: bold;
-    right: 12px;  
+    right:26px;
+  
 }
 
