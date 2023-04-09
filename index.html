@@ -9,15 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
 
 
-    <style>
-        #panorama {
-            position: fixed;
-            left: 10vw;
-            top: 5vh;
-            width: 80vw;
-            height: 90vh;
-        }
-    </style>
 
 </head>
 <body>
@@ -85,21 +76,21 @@
                 {
                     "pitch": -9.4,
                     "yaw": 276,
-                    
+
                     "cssClass": "custom-hotspot",
                     "createTooltipFunc": hotspot,
                     "createTooltipArgs": "Exit",
                     "clickHandlerFunc": exitLink,
-                       
+
                 },
             ]
-                
+
         });
         document.getElementById('fullscreen').addEventListener('click', function (e) {
             viewer.toggleFullscreen();
         });
-      
-      
+
+
 
 
 
@@ -117,15 +108,26 @@
         function exitLink(hotSpotDiv, args) {
             window.open("https://fangknife.github.io/Fangknife.com/", "_self")
         }
-      
 
-     
+
+
+    </script>
+
+    <script>
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            document.getElementById("panorama").style.cssText = "position: fixed; left: 4vw; top: 12.5vh; width: 92vw; height: 85vh;"
+        } else {
+            document.getElementById("panorama").style.cssText =
+            "position: fixed; left: 10vw; top: 5vh; width: 80vw; height: 90vh;"
+        }
+
+
+
     </script>
 
 
-
-
-
+    width: 80vw;
+    height: 90vh;
 
 
 
