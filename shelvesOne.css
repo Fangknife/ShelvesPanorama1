@@ -1,0 +1,119 @@
+body {
+    background-color: black;
+    padding: 0px;
+    border-collapse: collapse;
+    margin: 0;
+
+    overflow: hidden;
+
+}
+
+.control1 {
+    z-index: 12;
+    position: absolute;
+    background-color: black;
+    text-align: center;
+    color: white;
+    height: 20px;
+    width: 20px;
+    left: 25px;
+    font-family: georgia;
+    cursor: pointer;
+}
+
+.control1:hover {
+    background-color: dimgray;
+}
+
+.control2 {
+    z-index: 12;
+    position: absolute;
+    background-color: black;
+    text-align: left;
+    color: white;
+    height: 106px;
+    width: 280px;
+    padding: 0px;
+    left: 0px;
+    top: 23px;
+    font-family: georgia;
+    cursor: default;
+}
+
+.controlX {
+    position: relative;
+    background-color: darkred;
+    text-align: center;
+    color: white;
+    height: 20px;
+    width: 20px;
+    padding: 0px;
+    font-family: arial;
+    cursor: pointer;
+}
+
+.controlX:hover{
+    background-color: red;
+}
+
+.fs {
+    position: fixed;
+    background-color: black;
+    text-align: center;
+    color: white;
+    height: 20px;
+    width: 20px;
+    padding: 0px;
+    font-family: georgia;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.fs:hover {
+    background-color: dimgray;
+}
+
+.top {
+    position: fixed;
+    background-color: black;
+    height: 25px;
+    width: 100vw;
+    top: 0px;
+    z-index: 8;
+}
+.bottom {
+    position: fixed;
+    background-color: black;
+    height: 25px;
+    width: 100vw;
+    bottom: 0px;
+    z-index: 8;
+}
+
+.custom-hotspot {
+    height: 50px;
+    width: 50px;
+    background: black;
+
+}
+
+div.custom-tooltip span {
+    visibility: visible;
+    position: absolute;
+    background-color: none;
+    color: white;
+    text-align: center;
+    width: 18px;
+    padding: 5px 10px;
+    margin-left: -220px;
+    right: 10px;
+    cursor: pointer;
+    top: 52px;
+    font-family: georgia;
+}
+
+div.custom-tooltip:hover span {
+    font-weight: bold;
+    right: 12px;  
+}
+

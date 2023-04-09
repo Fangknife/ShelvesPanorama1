@@ -1,0 +1,130 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShelvesOne</title>
+    <link rel="stylesheet" href="shelvesOne.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+
+
+    <style>
+        #panorama {
+            position: fixed;
+            left: 10vw;
+            top: 5vh;
+            width: 80vw;
+            height: 90vh;
+        }
+    </style>
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+
+    <div id="panorama">
+        <div id="controls">
+            <div class="fs" id="fullscreen" onclick="fsClick()">
+                &#x2922;
+
+            </div>
+            <div class="control1"
+                 onclick="control1Click()">
+                &#63;
+                <script>
+                    function control1Click() {
+                        document.getElementById("control2").style.display = "block";
+                    }
+                </script>
+            </div>
+
+            <div class="control2"
+                 id="control2"
+                 style="display:none;">
+                <span class="controlX"
+                      id="controlX"
+                      onclick="controlXClick()">
+                    &nbsp;X
+                    <script>
+                        function controlXClick() {
+                            document.getElementById("control2").style.display = "none";
+                        }
+                    </script>
+                </span>
+                &nbsp; To move camera: Click and drag or use Arrow keys. <p>
+                    Zoom in with Shift, Zoom out with Ctrl, or use Scroll wheel.
+            </div>
+        </div>
+
+        <div class="top" id="top"></div>
+        <div class="bottom"></div>
+
+
+
+
+    </div>
+
+
+
+
+
+    <script>
+        viewer = pannellum.viewer('panorama', {
+
+            "type": "equirectangular",
+            "panorama": "https://i.imgur.com/iLDVOCj.jpeg",
+            "autoLoad": true,
+            "showControls": false,
+            "preview": "loadImg2.jpg",
+            "pitch": 5,
+            "yaw": 275,
+            "hfov": 90,
+            "hotSpots": [
+                {
+                    "pitch": -9.4,
+                    "yaw": 276,
+                    "URL": "https://artbma.org/",
+                    "cssClass": "custom-hotspot",
+                    "createTooltipFunc": hotspot,
+                    "createTooltipArgs": "Exit",
+                       
+                },
+            ]
+                
+        });
+        document.getElementById('fullscreen').addEventListener('click', function (e) {
+            viewer.toggleFullscreen();
+        });
+      
+      
+
+
+
+
+        function hotspot(hotSpotDiv, args) {
+            hotSpotDiv.classList.add('custom-tooltip');
+            var span = document.createElement('span');
+            span.innerHTML = args;
+            hotSpotDiv.appendChild(span);
+            span.style.width = span.scrollWidth - 20 + 'px';
+            span.style.marginLeft = -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + 'px';
+            span.style.marginTop = -span.scrollHeight - 12 + 'px';
+        }
+
+        
+      
+
+     
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
