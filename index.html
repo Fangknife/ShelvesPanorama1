@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
@@ -85,10 +85,11 @@
                 {
                     "pitch": -9.4,
                     "yaw": 276,
-                    "URL": "https://fangknife.github.io/Fangknife.com/",
+                    
                     "cssClass": "custom-hotspot",
                     "createTooltipFunc": hotspot,
                     "createTooltipArgs": "Exit",
+                    "clickHandlerFunc": exitLink,
                        
                 },
             ]
@@ -113,7 +114,9 @@
             span.style.marginTop = -span.scrollHeight - 12 + 'px';
         }
 
-        
+        function exitLink(hotSpotDiv, args) {
+            window.open("https://fangknife.github.io/Fangknife.com/", "_self")
+        }
       
 
      
