@@ -116,7 +116,7 @@ div.custom-tooltip2 span {
 	visibility: visible;
 	position: absolute;
 	background-color: none;
-	background-image: url("eye4.png");
+	background-image: url("shelvesIMG/eye4.png");
 	background-size: 100% 100%;
 	cursor: pointer;
 	width: 165%;
@@ -124,5 +124,5 @@ div.custom-tooltip2 span {
 	top: 33px;
 }
 div.custom-tooltip2:hover span {
-	background-image: url("eye7.png");
+	background-image: url("shelvesIMG/eye7.png");
 }
