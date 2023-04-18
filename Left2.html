@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Shelves (2)</title>
+    <link rel="stylesheet" href="shelvesLeftCSS.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+
+
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+
+    <div id="panorama">
+        <div id="controls">
+
+            <div class="fs" id="fullscreen" onclick="fsClick()">
+            </div>
+
+            
+
+            <div class="controlQ"
+                 onclick="controlQClick()">
+                <script>
+                    function controlQClick() {
+                        document.getElementById("controlXText").style.display = "block";
+                    }
+                </script>
+            </div>
+
+            <div class="controlXText"
+                 id="controlXText"
+                 style="display:none;">
+                <span class="controlX"
+                      id="controlX"
+                      onclick="controlXClick()">
+                    &nbsp;X
+                    <script>
+                        function controlXClick() {
+                            document.getElementById("controlXText").style.display = "none";
+                        }
+                    </script>
+                </span>
+                &nbsp; To move camera: Click and drag or use Arrow keys. <p>
+                    Zoom in with Shift, Zoom out with Ctrl, or use Scroll wheel.
+            </div>
+        </div>
+        <div class="top" id="top"></div>
+        <div class="bottom"></div>
+    </div>
+
+
+    <script>
+        viewer = pannellum.viewer('panorama', {
+            "type": "equirectangular",
+            "panorama": "https://i.imgur.com/uptj9Uz.jpeg",
+            "autoLoad": true,
+            "showControls": false,
+            "preview": "shelvesIMG/loadImg2.jpg",
+            "pitch": -2,
+            "yaw": 290,
+            "hfov": 80,
+            "hotSpots": [
+                {
+                    "pitch": -9.4,
+                    "yaw": 135,
+                    "cssClass": "custom-hotspot",
+                    "createTooltipFunc": hotspot,
+                    "createTooltipArgs": "Exit",
+                    "clickHandlerFunc": exitLink,
+                },
+                {
+                    "pitch": -5,
+                    "yaw": -10,
+                    "cssClass": "customhotspot2",
+                    "createTooltipFunc": hotspot2,
+                    "createTooltipArgs": "",
+                    "clickHandlerFunc": zineLink,
+                },
+                {
+                    "pitch": 20,
+                    "yaw": 168,
+                    "cssClass": "customhotspot2",
+                    "createTooltipFunc": hotspot2,
+                    "createTooltipArgs": "",
+                    "clickHandlerFunc": sketchBookLink,
+                },
+                {
+                    "pitch": 19,
+                    "yaw": 240,
+                    "cssClass": "customhotspot2",
+                    "createTooltipFunc": hotspot2,
+                    "createTooltipArgs": "",
+                    "clickHandlerFunc": itemsLink,
+                },
+            ]
+
+        });
+        document.getElementById('fullscreen').addEventListener('click', function (e) {
+            viewer.toggleFullscreen();
+        });
+
+        function hotspot(hotSpotDiv, args) {
+            hotSpotDiv.classList.add('custom-tooltip');
+            var span = document.createElement('span');
+            span.innerHTML = args;
+            hotSpotDiv.appendChild(span);
+            span.style.width = span.scrollWidth - 20 + 'px';
+            span.style.marginLeft = -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + 'px';
+            span.style.marginTop = -span.scrollHeight - 12 + 'px';
+        }
+        function hotspot2(hotSpotDiv, args) {
+            hotSpotDiv.classList.add('custom-tooltip2');
+            var span = document.createElement('span');
+            span.innerHTML = args;
+            hotSpotDiv.appendChild(span);
+            span.style.width = span.scrollWidth - 20 + 'px';
+            span.style.marginLeft = -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + 'px';
+            span.style.marginTop = -span.scrollHeight - 12 + 'px';
+        }
+        function exitLink(hotSpotDiv, args) {
+            window.open("https://fangknife.github.io/Fangknife.com/", "_self")
+        }
+        function zineLink(hotSpotDiv, args) {
+            window.open("https://www.theduckwebcomics.com/user/GoblinOrgy/", "_self")
+        }
+        function sketchBookLink(hotSpotDiv, args) {
+            window.open("https://youtu.be/4un5y_kKbUo", "_self")
+        }
+        function itemsLink(hotSpotDiv, args) {
+            window.open("https://fangknife.github.io/Fangknife.com/", "_self")
+        }
+    </script>
+
+    <script>
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            document.getElementById("panorama").style.cssText = "position: fixed; left: 4vw; top: 12.5vh; width: 92vw; height: 75vh;"
+        } else {
+            document.getElementById("panorama").style.cssText = "position: fixed; left: 10vw; top: 5vh; width: 80vw; height: 90vh;"
+        }
+
+
+
+    </script>
+
+
+    
+
+
+
+</body>
+</html>
