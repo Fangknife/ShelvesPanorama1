@@ -28,7 +28,6 @@
                     <script>
                         function hideItems() {
                             document.getElementById("items2").style.display = "none";
-               
                         }
                         function itemsXHover() {
                             document.getElementById("itemsXIMG").src = "shelvesIMG/x4.png";
@@ -44,8 +43,9 @@
                     To move camera: Click and drag or use Arrow keys.
                     <p>Zoom in with Shift, Zoom out with Ctrl, use Scroll wheel, or Pinch.
                     <p>Made using <a href='https://pannellum.org/'>Panellum</a>.
-         
+
                 </div>
+
                 <div class="itemsCenter">
                     <img src="shelvesIMG/items.png"
                          id="itemsIMG"
@@ -94,7 +94,7 @@
                     <script>
                         function controlQClick() {
                             document.getElementById("items2").style.display = "block";
-                            document.getElementById("itemsIMG").style.display = "none";
+                            document.getElementById("itemsIMG").style.visibility = "hidden";
                             document.getElementById("items3").style.backgroundColor = "black";
                             document.getElementById("itemsText").style.display = "none";
                             document.getElementById("qText").style.display = "block";
@@ -208,7 +208,7 @@
                 document.getElementById("items2").style.display = "block";
                 document.getElementById("itemsIMG").src = "shelvesIMG/zines.png";
                 document.getElementById("itemsText").innerHTML = "<span> Zine collection. <a href = 'https://www.theduckwebcomics.com/user/GoblinOrgy/''>Read?</a></span>";
-                document.getElementById("itemsIMG").style.display = "block";
+                document.getElementById("itemsIMG").style.visibility = "visible";
                 document.getElementById("items3").style.backgroundColor = "white";
                 document.getElementById("itemsText").style.display = "block";
                 document.getElementById("qText").style.display = "none";
@@ -217,7 +217,7 @@
                 document.getElementById("items2").style.display = "block";
                 document.getElementById("itemsIMG").src = "shelvesIMG/sketchbooks.png";
                 document.getElementById("itemsText").innerHTML = "<span> Old sketchbooks. <a href = 'https://youtu.be/4un5y_kKbUo''>View?</a></span>";
-                document.getElementById("itemsIMG").style.display = "block";
+                document.getElementById("itemsIMG").style.visibility = "visible";
                 document.getElementById("items3").style.backgroundColor = "white";
                 document.getElementById("itemsText").style.display = "block";
                 document.getElementById("qText").style.display = "none";
@@ -226,7 +226,7 @@
                 document.getElementById("items2").style.display = "block";
                 document.getElementById("itemsIMG").src = "shelvesIMG/items.png";
                 document.getElementById("itemsText").innerHTML = "A little display area."
-                document.getElementById("itemsIMG").style.display = "block";
+                document.getElementById("itemsIMG").style.visibility = "visible";
                 document.getElementById("items3").style.backgroundColor = "white";
                 document.getElementById("itemsText").style.display = "block";
                 document.getElementById("qText").style.display = "none";
