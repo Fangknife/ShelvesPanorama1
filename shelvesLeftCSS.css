@@ -1,0 +1,279 @@
+body {
+	background-color: black;
+	padding: 0px;
+	border-collapse: collapse;
+	margin: 0;
+	overflow: hidden;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.hide {
+	visibility: hidden !important;
+	display: none;
+}
+
+.controlEye {
+	z-index: 12;
+	position: absolute;
+	background-color: none;
+	background-image: url("shelvesIMG/eye13.png");
+	background-size: 100% 100%;
+	height: 20px;
+	width: 20px;
+	left: 50px;
+	cursor: pointer;
+}
+.controlEye:hover {
+	background-image: url("shelvesIMG/eye14.png");
+}
+.controlEye2 {
+	display: none;
+	z-index: 12;
+	position: absolute;
+	background-color: none;
+	background-image: url("shelvesIMG/eye15.png");
+	background-size: 100% 100%;
+	height: 20px;
+	width: 20px;
+	left: 50px;
+	cursor: pointer;
+}
+.controlEye2:hover {
+	background-image: url("shelvesIMG/eye16.png");
+}
+
+.controlQ {
+	z-index: 12;
+	position: absolute;
+	background-color: none;
+	background-image: url("shelvesIMG/qIcon2.png");
+	background-size: 100% 100%;
+	height: 20px;
+	width: 20px;
+	left: 25px;
+	cursor: pointer;
+}
+.controlQ:hover {
+	background-image: url("shelvesIMG/qIcon3.png");
+}
+
+.fs {
+	position: fixed;
+	background-color: none;
+	background-image: url("shelvesIMG/fsIcon1.png");
+	background-size: 100% 100%;
+	height: 20px;
+	width: 20px;
+	cursor: pointer;
+	z-index: 10;
+}
+
+.fs:hover {
+	background-image: url("shelvesIMG/fsIcon2.png");
+	background-color: dimgray;
+}
+
+.top {
+	position: fixed;
+	background-color: black;
+	height: 25px;
+	width: 100vw;
+	top: 0px;
+	z-index: 8;
+}
+
+.bottom {
+	position: fixed;
+	background-color: black;
+	height: 25px;
+	width: 100vw;
+	bottom: 0px;
+	z-index: 8;
+}
+
+.custom-hotspot {
+	height: 30px;
+	width: 50px;
+	background: none;
+}
+div.custom-tooltip span {
+	visibility: visible;
+	position: absolute;
+	background-color: black;
+	color: white;
+	text-align: center;
+	cursor: pointer;
+	width: 140%;
+	height: 80%;
+	top: 36px;
+	font-family: georgia;
+}
+div.custom-tooltip:hover span {
+	font-weight: bold;
+}
+
+.customhotspot2 {
+	visibility: visible;
+	height: 20px;
+	width: 32px;
+	background: none;
+}
+div.custom-tooltip2 span {
+	visibility: visible;
+	position: absolute;
+	background-color: none;
+	background-image: url("shelvesIMG/eye4.png");
+	background-size: 100% 100%;
+	cursor: pointer;
+	width: 165%;
+	height: 104%;
+	top: 33px;
+}
+div.custom-tooltip2:hover span {
+	background-image: url("shelvesIMG/eye7.png");
+}
+
+div.custom-tooltip3 span {
+	visibility: visible;
+	position: absolute;
+	background-color: none;
+	background-image: url("shelvesIMG/eye4.png");
+	background-size: 100% 100%;
+	cursor: pointer;
+	width: 165%;
+	height: 104%;
+	top: 33px;
+}
+div.custom-tooltip3:hover span {
+	background-image: url("shelvesIMG/eye10.png");
+}
+
+.items {
+	z-index: 12;
+	position: absolute;
+	background-color: black;
+	height: calc(90vh - 70px);
+	width: calc(80vw - 20px);
+	left: calc(10vw + 10px);
+	top: calc(5vh + 35px);
+}
+.items2 {
+	display: none;
+	z-index: 12;
+	position: absolute;
+	background-color: antiquewhite;
+	height: calc(90vh - 90px);
+	width: calc(80vw - 40px);
+	left: calc(10vw + 20px);
+	top: calc(5vh + 45px);
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
+	border: 5px;
+	outline-style: solid;
+	outline-width: 10px;
+	outline-color: black;
+}
+.items3 {
+	position: absolute;
+	background-color: white;
+	height: calc(100% - 20px);
+	width: calc(100% - 20px);
+	left: 10px;
+	top: 10px;
+}
+.itemsX {
+	position: relative;
+	background-color: none;
+	height: 20px;
+	text-align: left;	
+}
+
+
+@media only screen and (max-height: 95vw) {
+.itemsCenter {
+	height: 100%;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	top: calc(50% + 2px);
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+
+}}
+@media only screen and (max-height: 95vw) {
+	.itemsIMG {
+		height: calc(100% - 45px);
+		max-width: 100%;
+		position: relative;
+
+}}
+@media only screen and (max-height: 95vw) {
+	.itemsText {
+		z-index: 40;
+		background-color: none;
+		color: black;
+		font-family: georgia;
+		height: 20px;
+		font-size: 18px;
+		position: relative;
+		top: -2px;
+	}}
+@media only screen and (min-height: 95vw) {
+	.itemsCenter {
+		max-width: 100%;
+		max-height: calc(100% - 45px);
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+		top: calc(50% - 20px);
+		left: 50%;
+		-ms-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+	}}
+@media only screen and (min-height: 95vw) {
+	.itemsIMG {
+		max-width: 100%;
+		max-height: 100%;
+		position: relative;
+		
+	}}
+@media only screen and (min-height: 95vw) {
+	.itemsText {
+		z-index: 40;
+		background-color: none;
+		color: black;
+		font-family: georgia;
+		height: 20px;
+		font-size: 18px;
+		position: relative;
+		
+	}}
+
+a:link {
+	text-decoration: none;
+	color: red;
+}
+
+a:visited {
+	text-decoration: none;
+	color: red;
+}
+
+a:hover, a:active {
+	text-decoration: underline;
+	color: red;
+}
+.qText {
+	z-index: 42;
+	display: none;
+	text-align: left;
+	background-color: none;
+	color: white;
+	font-family: georgia;
+	height: 20px;
+	font-size: 18px;
+	position: relative;
+	padding: 10px;
+}
