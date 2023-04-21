@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="shelvesCSS4.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="C:\Program Files\_Coding\VScode\jquery-3.6.1.min.js"></script>
+
+</head>
+<body>
+
+    <div class="bgDiv"
+         id="bgDiv">
+        <img src="IMG2/finals/shelf1420white.png"
+             id="bgDivImg"
+             style="
+             z-index: 1;
+             position: relative;
+             width: 100%;
+             height: 100%;
+             opacity: 100%;
+             " />
+
+        <div class="redHitBox1"
+             id="redHitBox1"
+             onmouseenter="red1MouseY(), redOpen()"
+             style="
+             visibility: visible;">
+            <script>
+                function red1MouseY() {
+                    document.getElementById("redHitBox1").style.visibility = "hidden";
+
+                    setTimeout(function () {
+                        document.getElementById("redHitBox2").style.visibility = "visible";
+                    }, 1600);
+                }
+            </script>
+        </div>
+
+        <div class="redHitBox2"
+             id="redHitBox2"
+             onmouseenter="red2MouseY(), redClose()"
+             style="
+             visibility: hidden;">
+            <script>
+                function red2MouseY() {
+                    document.getElementById("redHitBox2").style.visibility = "hidden";
+
+                    setTimeout(function () {
+                        document.getElementById("redHitBox1").style.visibility = "visible";
+
+                    }, 1600);
+                }
+            </script>
+        </div>
+
+        <div class="redClickBox"
+             id="redClickBox"
+             onclick="redClick()"
+             style="
+             visibility: hidden;">
+            <script>
+                function redClick() {
+                    document.location = 'https://fangknife.github.io/TheShelves/Left.html';
+                }
+            </script>
+        </div>
+
+
+
+        <div class="redCurtain"
+             id="redCurtain">
+            <img src="IMG2/finals/r1.png"
+                 id="redImg"
+                 style="
+             z-index: 1;
+             position: relative;
+             width: 100%;
+             height: 100%;
+             " />
+            <script>
+                var redImages = new Array()
+                redImages = [
+                    "img2/finals/r1.png",
+                    "img2/finals/r2.png",
+                    "img2/finals/r3.png",
+                    "img2/finals/r4.png",
+                    "img2/finals/r5.png",
+                    "img2/finals/r6.png",
+                    "img2/finals/r7.png",
+                    "img2/finals/r8.png",
+                    "img2/finals/r9.png",
+                    "img2/finals/r10.png",
+                    "img2/finals/r11.png",
+                    "img2/finals/r12.png",
+                    "img2/finals/r13.png",
+                    "img2/finals/r14.png",
+                ];
+                function redOpen() {
+                    var redNumb = 0;
+                    var intervalRedOpen =
+                        setInterval(function () {
+                            document.getElementById("redImg").src = redImages[redNumb]
+                            redNumb = redNumb + 1;
+                            if (redNumb == 14) {
+                                clearInterval(intervalRedOpen);
+                                return;
+                            }
+                            if (redNumb > 7) {
+                                document.getElementById("redClickBox").style.visibility = "visible";
+                            }
+                        }, 100);
+                }
+                function redClose() {
+                    var redNumb = 13;
+                    var intervalRedClose =
+                        setInterval(function () {
+                            document.getElementById("redImg").src = redImages[redNumb]
+                            redNumb = redNumb - 1;
+                            if (redNumb == -1) {
+                                clearInterval(intervalRedClose);
+                                return;
+                            }
+                            if (redNumb < 7) {
+                                document.getElementById("redClickBox").style.visibility = "hidden";
+                            }
+                        }, 100);
+                }
+            </script>
+        </div>
+
+        <!-- WHITE CURTAIN -->
+        <div class="whiteHitBox"
+             id="whiteHitBox"
+             onmouseenter="whiteOpen()"
+             onmouseout="whiteClose()"
+             style="
+             visibility: visible;">
+        </div>
+
+        <div class="whiteCurtain"
+             id="Curtain">
+            <img src="IMG2/finals/w1.png"
+                 id="whiteImg"
+                 style="
+             z-index: 1;
+             position: relative;
+             width: 100%;
+             height: 100%;
+             " />
+            <script>
+                var whiteImages = new Array()
+                whiteImages = [
+                    "img2/finals/w1.png",
+                    "img2/finals/w2.png",
+                    "img2/finals/w3.png",
+                    "img2/finals/w4.png",
+                    "img2/finals/w5.png",
+                    "img2/finals/w6.png",
+                    "img2/finals/w7.png",
+                    "img2/finals/w8.png",
+                    "img2/finals/w9.png",
+                    "img2/finals/w10.png",
+                    "img2/finals/w11.png",
+                ];
+                var wNumb = 0;
+                function whiteOpen() {
+                    var intervalWhiteOpen = setInterval(
+                        function () {
+                            document.getElementById("whiteImg").src = whiteImages[wNumb];
+                            wNumb = wNumb + 1;
+                            if (wNumb == 11) {
+                                clearInterval(intervalWhiteOpen);
+                                wNumb = 10;
+                                document.getElementById("whiteHitBox").style.cursor = "pointer";
+                            }
+                        }
+                        , 100);
+                    whiteHitBox.addEventListener("mouseout", function () {
+                        clearInterval(intervalWhiteOpen);
+                    });
+                }
+                function whiteClose() {
+                    document.getElementById("whiteHitBox").style.cursor = "default";
+                    var intervalWhiteClose = setInterval(
+                        function () {
+                            document.getElementById("whiteImg").src = whiteImages[wNumb];
+                            wNumb = wNumb - 1;
+                            if (wNumb == -1) {
+                                clearInterval(intervalWhiteClose);
+                                wNumb = 0;
+                            }
+                        }
+                        , 70);
+                    whiteHitBox.addEventListener("mouseenter", function () {
+                        clearInterval(intervalWhiteClose);
+                    });
+                }
+
+                whiteHitBox.addEventListener("click", function () {
+                    if (wNumb == 10) {
+                        document.location = 'https://fangknife.github.io/TheShelves/Right.html';
+                    }
+                });
+            </script>
+        </div>
+    </div>
+
+    <!-- DOOR -->
+    <div class="doorDiv"
+         id="doorDiv"
+         onmouseover="doorOpen()"
+         onmouseout="doorClose()">
+        <img src="IMG2/finals/door1.jpg"
+             id="doorImg"
+             style="
+             position: relative;
+             width: 100%;
+             height: 100%;
+             opacity: 100%;
+             " />
+
+        <script>
+            var doorImages = new Array()
+            doorImages = [
+                "img2/finals/door1.jpg",
+                "img2/finals/door2.jpg",
+                "img2/finals/door3.jpg",
+                "img2/finals/door4.jpg",
+                "img2/finals/door5.jpg",
+            ];
+            var dNumb = 0;
+            function doorOpen() {
+                var intervalDoorOpen = setInterval(
+                    function () {
+                        document.getElementById("doorImg").src = doorImages[dNumb];
+                        dNumb = dNumb + 1;
+                        if (dNumb == 5) {
+                            clearInterval(intervalDoorOpen);
+                            dNumb = 4;
+                            document.getElementById("doorDiv").style.cursor = "pointer";
+                        }
+                    }
+                    , 130);
+                doorDiv.addEventListener("mouseout", function () {
+                    clearInterval(intervalDoorOpen);
+                });
+            }
+            function doorClose() {
+                document.getElementById("doorDiv").style.cursor = "default";
+                var intervalDoorClose = setInterval(
+                    function () {
+                        document.getElementById("doorImg").src = doorImages[dNumb];
+                        dNumb = dNumb - 1;
+                        if (dNumb == -1) {
+                            clearInterval(intervalDoorClose);
+                            dNumb = 0;
+                        }
+                    }
+                    , 100);
+                doorDiv.addEventListener("mouseenter", function () {
+                    clearInterval(intervalDoorClose);
+                });
+            }
+            doorDiv.addEventListener("click", function () {
+                document.location = 'https://fangknife.github.io/Fangknife.com/';
+            });
+        </script>
+
+
+
+
+
+
+
+
+
+    </div>
+
+</body>
+</html>
