@@ -22,7 +22,7 @@ body {
 		background-color: darkblue;
 		height: 72.25vw;
 		width: 95vw;
-		top: calc(50vh - 36.13vw);
+		top: calc(37vh - 36.13vw);
 		left: 2.5vw;
 		max-height: 99vh;
 	}}
@@ -37,16 +37,38 @@ body {
 		top: 1vh;
 		left: 4vw;
 	}}
-
 .doorDiv {
 	z-index: 1;
 	position: absolute;
-	background-color: yellow;
+	background-color: pink;
 	height: 34vw;
 	width: 15vw;
 	top: calc(50vh - 9.6vw);
 	left: 74.5vw;
 }
+@media only screen and (max-width: 70vh) {
+	.doorDiv {
+		background-color: darkblue;
+		z-index: 0;
+		position: absolute;
+		background-color: orangered;
+		height: 51vw;
+		width: 22.5vw;
+		top: calc(100vh - 51vw)
+	}}
+
+@media only screen and (max-height: 45vw) {
+	.doorDiv {
+		background-color: lawngreen;
+		z-index: 1;
+		position: absolute;
+		height: 80vh;
+		width: 36vh;
+		top: 23vh;
+		left: calc(133.6vh + 8vw);
+	}}
+
+
 
 
 
