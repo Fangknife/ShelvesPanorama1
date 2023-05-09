@@ -1,0 +1,181 @@
+body {
+    background-color: red;
+    padding: 0px;
+    border-collapse: collapse;
+    margin: 0;
+ 	overflow: hidden;
+}
+
+canvas {
+    left: 0;
+    right: 0;
+    width: calc(9 * 99%);
+    height: 99%;
+    position: relative;
+}
+
+.leftDiv {
+    z-index: 5;
+    position: fixed;
+    width: 10vw;
+    height: 80vh;
+    top: 10vh;
+    left: 0px;
+    cursor: url('lArrow.png'), url(lArrow2.svg), pointer;
+}
+.rightDiv {
+    z-index: 5;
+    position: fixed;
+    width: 10vw;
+    height: 80vh;
+    top: 10vh;
+    right: 0px;
+    cursor: url('rArrow.png'), url(rArrow2.svg), pointer;
+}
+.topDiv {
+    z-index: 6;
+    position: fixed;
+    width: 100vw;
+    height: 10vh;
+    top: 0px;
+    left: 0px;
+    cursor: url('uArrow.png'), url(uArrow2.svg), pointer;
+}
+.bottomDiv {
+    z-index: 6;
+    position: fixed;
+    width: 100vw;
+    height: 10vh;
+    bottom: 0px;
+    left: 0px;
+    cursor: url('dArrow.png'), url(dArrow2.svg), pointer;
+}
+.canvasDiv {
+    position: relative;
+    width: 20vw;
+    height: 20vw;
+    top: calc(50vh - 10vw);
+    left: 40vw;
+}
+
+.toLeftClass {
+    animation-name: toLeftAni;
+    animation-duration: 4.86s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.7, 0.2, 1.0, 1.5);
+}
+@keyframes toLeftAni {
+    0% {
+        transform: translateX(0); }
+    30% {
+        transform: translateX(0); }
+    100% {
+        transform: translateX(-70vw); }
+}
+.fromRightClass {
+    animation-name: fromRightAni;
+    animation-duration: 3.24s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0, 0, 0.8, 1.0);
+}
+@keyframes fromRightAni {
+    0% {
+        transform: translateX(70vw); }
+    70% {
+        transform: translateX(0); }
+    100% {
+        transform: translateX(0); }
+}
+
+
+
+.toRightClass {
+    animation-name: toRightAni;
+    animation-duration: 3.24s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.42, 0, 1.0, 1.0);
+}
+@keyframes toRightAni {
+    0% {
+        transform: translateX(0); }
+    50% {
+        transform: translateX(0); }
+    100% {
+        transform: translateX(70vw); }
+}
+.fromLeftClass {
+    animation-name: fromLeftAni;
+    animation-duration: 3.24s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0, 0, 0.7, 1.0);
+}
+@keyframes fromLeftAni {
+    0% {
+        transform: translateX(-70vw); }
+    70% {
+        transform: translateX(0); }
+    100% {
+        transform: translateX(0); }
+}
+
+
+
+
+.toTopClass {
+    animation-name: toTopAni;
+    animation-duration: 2.16s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.8, 0, 1.0, 1.0);
+}
+@keyframes toTopAni {
+    0% {
+        transform: translateY(0); }
+    100% {
+        transform: translateY(-80vh); }
+}
+.fromBottomClass {
+    animation-name: fromBottomAni;
+    animation-duration: 2.7s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0, -1, 0.75, 1.0);
+}
+@keyframes fromBottomAni {
+    0% {
+        transform: translateY(60vh); }
+    44% {
+        transform: translateY(0); }
+    100% {
+        transform: translateY(0); }
+}
+
+
+
+
+.toBottomClass {
+    animation-name: toBottomAni;
+    animation-duration: 2.16s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.7, 0, 1.0, 1.5);
+}
+@keyframes toBottomAni {
+    0% {
+        transform: translateY(0); }
+    33% {
+        transform: translateY(0); }
+    100% {
+        transform: translateY(70vh); }
+}
+.fromTopClass {
+    animation-name: fromTopAni;
+    animation-duration: 1.62s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0, 0, 0.58, 1.0);
+}
+@keyframes fromTopAni {
+    0% {
+        transform: translateY(-80vh); }
+    30% {
+        transform: translateY(0); }
+    100% {
+        transform: translateY(0); }
+}

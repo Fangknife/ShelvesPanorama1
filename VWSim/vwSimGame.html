@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="vwSimGameCSS.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="C:\Program Files\_Coding\VScode\jquery-3.6.1.min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <div class="canvasDiv"
+         id="canvasDiv">
+        <canvas id="canvasId" width="3375" height="400"> </canvas>
+    </div>
+
+    <div class="leftDiv"
+         id="leftDiv">
+    </div>
+
+    <div class="rightDiv"
+         id="rightDiv">
+    </div>
+
+    <div class="bottomDiv"
+         id="bottomDiv">
+    </div>
+
+    <div class="topDiv"
+         id="topDiv">
+    </div>
+
+
+    <script>
+        const SPRITE_WIDTH = 375;
+        const SPRITE_HEIGHT = 400;
+        function spritePositionToImagePosition(row, col) {
+            return {
+                x: (
+                    col * SPRITE_WIDTH
+                ),
+                y: (
+                    row *  SPRITE_HEIGHT
+                )
+            }
+        }
+
+        var canvas = document
+            .querySelector('canvas');
+        var context = canvas
+            .getContext('2d');
+
+
+        var spriteSheetURL = 'idle.png';
+        var image = new Image();
+        image.src = spriteSheetURL;
+
+
+        var row = 0;
+        var col = 0;
+        var intervalAni = setInterval(
+            function () {
+
+                if (row === 0 && col === 8 && spriteSheetURL == "idle.png") {
+                    col = 0;
+                }
+                //LEFT
+                else if (spriteSheetURL == "runToLeft.png" && row < 8 && col === 8) {
+                    row += 1;
+                    col = 0;
+                }
+                else if (spriteSheetURL == "runToLeft.png" && row === 8 && col === 8) {
+                    spriteSheetURL = "enterFromRight.png";
+                    image.src = spriteSheetURL;
+                    row = 0;
+                    col = 0;
+                    canvasDiv.classList.replace('toLeftClass', 'fromRightClass');
+                    setTimeout(function () {
+                        canvasDiv.classList.remove('fromRightClass');
+                        showHitboxes();
+                    }, 3240);
+                }   
+                else if (spriteSheetURL == "enterFromRight.png" && row < 5 && col === 8) {
+                    row += 1;
+                    col = 0;
+                }
+                else if (spriteSheetURL == "enterFromRight.png" && row === 5 && col === 8) {
+                    spriteSheetURL = "idle.png";
+                    image.src = spriteSheetURL;
+                    row = 0;
+                    col = 0;
+                }
+                //RIGHT
+                else if (spriteSheetURL == "runToRight.png" && row < 5 && col === 8) {
+                    row += 1;
+                    col = 0;
+                }
+                else if (spriteSheetURL == "runToRight.png" && row === 5 && col === 8) {
+                    spriteSheetURL = "enterFromLeft.png";
+                    image.src = spriteSheetURL;
+                    row = 0;
+                    col = 0;
+                    canvasDiv.classList.replace('toRightClass', 'fromLeftClass');
+                    setTimeout(function () {
+                        canvasDiv.classList.remove('fromLeftClass');
+                        showHitboxes();
+                    }, 3240);
+                }
+                else if (spriteSheetURL == "enterFromLeft.png" && row < 5 && col === 8) {
+                    row += 1;
+                    col = 0;
+                }
+                else if (spriteSheetURL == "enterFromLeft.png" && row === 5 && col === 8) {
+                    spriteSheetURL = "idle.png";
+                    image.src = spriteSheetURL;
+                    row = 0;
+                    col = 0;
+                }
+                //DOWN
+                else if (spriteSheetURL == "fallToBottom.png" && row < 3 && col === 8) {
+                    row += 1;
+                    col = 0;
+                }
+                else if (spriteSheetURL == "fallToBottom.png" && row === 3 && col === 8) {
+                    spriteSheetURL = "fallFromTop.png";
+                    image.src = spriteSheetURL;
+                    row = 0;
+                    col = 0;
+                    canvasDiv.classList.replace('toBottomClass', 'fromTopClass');
+                    setTimeout(function () {
+                        canvasDiv.classList.remove('fromTopClass');
+                        showHitboxes();
+                    }, 1620);
+                }
+                else if (spriteSheetURL == "fallFromTop.png" && row < 2 && col === 8) {
+                    row += 1;
+                    col = 0;
+                }
+                else if (spriteSheetURL == "fallFromTop.png" && row === 2 && col === 8) {
+                    spriteSheetURL = "idle.png";
+                    image.src = spriteSheetURL;
+                    row = 0;
+                    col = 0;
+                    
+                }
+                //UP
+                else if (spriteSheetURL == "fallToTop.png" && row < 3 && col === 8) {
+                    row += 1;
+                    col = 0;
+                }
+                else if (spriteSheetURL == "fallToTop.png" && row === 3 && col === 8) {
+                    spriteSheetURL = "fallFromBottom.png";
+                    image.src = spriteSheetURL;
+                    row = 0;
+                    col = 0;
+                    canvasDiv.classList.replace('toTopClass', 'fromBottomClass');
+                    setTimeout(function () {
+                        canvasDiv.classList.remove('fromBottomClass');
+                        showHitboxes();
+                    }, 2700);
+                }
+                else if (spriteSheetURL == "fallFromBottom.png" && row < 4 && col === 8) {
+                    row += 1;
+                    col = 0;
+                }
+                else if (spriteSheetURL == "fallFromBottom.png" && row === 4 && col === 8) {
+                    spriteSheetURL = "idle.png";
+                    image.src = spriteSheetURL;
+                    row = 0;
+                    col = 0;
+                }
+                var position = spritePositionToImagePosition(row, col);
+                context.clearRect(
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                );
+                context.drawImage(
+                    image,
+                    position.x,
+                    position.y,
+                    SPRITE_WIDTH,
+                    SPRITE_HEIGHT,
+                    0,
+                    0,
+                    SPRITE_WIDTH,
+                    SPRITE_HEIGHT
+                );
+                col += 1;
+                image.src = spriteSheetURL;
+            }
+            , 60);
+
+        document.getElementById("topDiv").addEventListener("click", topClick);
+        function topClick() {
+            spriteSheetURL = "fallToTop.png";
+            image.src = spriteSheetURL;
+            row = 0;
+            col = 0;
+            canvasDiv.classList.add('toTopClass');
+            hideHitboxes();
+        }
+
+        document.getElementById("leftDiv").addEventListener("click", leftClick);
+        function leftClick() {
+            spriteSheetURL = "runToLeft.png";
+            image.src = spriteSheetURL;
+            row = 0;
+            col = 0;
+            canvasDiv.classList.add('toLeftClass');
+            hideHitboxes();
+        }
+
+        document.getElementById("rightDiv").addEventListener("click", rightClick);
+        function rightClick() {
+            spriteSheetURL = 'runToRight.png';
+            image.src = spriteSheetURL;
+            row = 0;
+            col = 0;
+            canvasDiv.classList.add('toRightClass');
+            hideHitboxes();
+        }
+        
+        document.getElementById("bottomDiv").addEventListener("click", bottomClick);
+        function bottomClick() {
+            spriteSheetURL = 'fallToBottom.png';
+            image.src = spriteSheetURL;
+            row = 0;
+            col = 0;
+            canvasDiv.classList.add('toBottomClass');
+            hideHitboxes();
+        }
+
+        function hideHitboxes() {
+            document.getElementById("leftDiv").style.display = "none";
+            document.getElementById("rightDiv").style.display = "none";
+            document.getElementById("topDiv").style.display = "none";
+            document.getElementById("bottomDiv").style.display = "none";
+        }
+        function showHitboxes() {
+            document.getElementById("leftDiv").style.display = "block";
+            document.getElementById("rightDiv").style.display = "block";
+            document.getElementById("topDiv").style.display = "block";
+            document.getElementById("bottomDiv").style.display = "block";
+        }
+        
+    </script>
+
+
+
+
+
+</body>
+</html>
