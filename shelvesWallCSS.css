@@ -15,138 +15,336 @@ body {
 	left: 4vw;
 }
 
-@media only screen and (max-width: 70vh) {
-	.bgDiv {
-		z-index: 1;
-		position: absolute;
-		background-color: darkblue;
-		height: 72.25vw;
-		width: 95vw;
-		top: calc(37vh - 36.13vw);
-		left: 2.5vw;
-		max-height: 99vh;
-	}}
 
-@media only screen and (max-height: 45vw) {
-	.bgDiv {
-		z-index: 1;
-		position: absolute;
-		background-color: lawngreen;
-		height: 98vh;
-		width: 133.6vh;
-		top: 1vh;
-		left: 4vw;
-	}}
-.doorDiv {
-	z-index: 1;
+.redHitBox1 {
+	z-index: 4;
+	position: absolute;
+	height: 50%;
+	width: 10%;
+	top: 33%;
+	left: 21.5%;
+}
+.redHitBox2 {
+	z-index: 4;
+	position: absolute;
+	height: 50%;
+	width: 11%;
+	top: 33%;
+	left: 12%;
+}
+.redClickBox {
+	z-index: 8;
+	position: absolute;
+	height: 50%;
+	width: 8%;
+	top: 33%;
+	left: 23%;
+	cursor: pointer;
+}
+.redCurtain {
+	z-index: 2;
+	position: absolute;
+	height: 57.87%;
+	width: 31.69%;
+	top: 29.72%;
+	left: 6.27%;
+}
+.whiteHitBox {
+	z-index: 4;
+	position: absolute;
+	height: 45%;
+	width: 9%;
+	top: 38%;
+	left: 62.5%;
+}
+.whiteClickBox {
+	z-index: 8;
+	position: absolute;
+	height: 45%;
+	width: 9%;
+	top: 38%;
+	left: 62.5%;
+}
+.whiteCurtain {
+	z-index: 2;
+	position: absolute;
+	height: 54.26%;
+	width: 16.76%;
+	top: 31.39%;
+	left: 58.87%;
+}
+.rightArrowBox {
+	z-index: 8;
+	position: absolute;
+	height: 120%;
+	width: 15%;
+	top: -10%;
+	left: 90%;
+	cursor: url('shelvesIMG/rArrow6.png'), url(shelvesIMG/rArrow7.svg), w-resize;
+}
+.leftArrowBox {
+	z-index: 8;
+	position: absolute;
+	height: 120%;
+	width: 20%;
+	top: -10%;
+	left: -10%;
+	cursor: url('shelvesIMG/lArrow6.png'), url(shelvesIMG/lArrow7.svg), e-resize;
+}
+.door2Div {
+	z-index: 2;
 	position: absolute;
 	background-color: pink;
+	height: 53.33%;
+	width: 20.56%;
+	top: 22.22%;
+	left: 66.13%;
+}
+.doorDiv {
+	z-index: 2;
+	position: absolute;
 	height: 34vw;
 	width: 15vw;
 	top: calc(50vh - 9.6vw);
 	left: 74.5vw;
 }
-@media only screen and (max-width: 70vh) {
-	.doorDiv {
-		background-color: darkblue;
-		z-index: 0;
-		position: absolute;
-		background-color: orangered;
-		height: 51vw;
-		width: 22.5vw;
-		top: calc(100vh - 51vw)
-	}}
 
-@media only screen and (max-height: 45vw) {
-	.doorDiv {
-		background-color: lawngreen;
-		z-index: 1;
-		position: absolute;
-		height: 80vh;
-		width: 36vh;
-		top: 23vh;
-		left: calc(133.6vh + 8vw);
-	}}
+.doorBgDiv {
+	z-index: 0;
+	position: absolute;
+	height: 34vw;
+	width: 15vw;
+	top: calc(50vh - 9.6vw);
+	left: 74.5vw;
+	display: none;
+}
 
 
 
-
-
-.redHitBox1 {
+.vwDiv {
 	z-index: 4;
 	position: absolute;
+	height: 34vw;
+	width: 26.58vw;
+	top: calc(50vh - 9.6vw);
+	left: 74.5vw;
+	display: none;
+}
+.vwDiv2 {
+	width: 11.85vw;
+	top: calc(50vh - 9.6vw);
+	left: 89.23vw;
+	
+}
+.vwDiv3 {
+	width: 29vw;
+	height: 29.7vw;
+	top: calc(50vh - 4.6vw);
+	left: 80vw;
+}
+
+.textDiv {
+	z-index: 5;
+	position: absolute;
+	height: 14.5vw;
+	width: 34vw;
+	top: calc(50vh - 22.82vw);
+	left: 65vw;
+	background-color: rgba(106, 37, 62, 0.26);
+	display: none;
+}
+.textDiv1 {
+	z-index: 6;
+	position: absolute;
+	height: 30%;
+	width: 90%;
+	top: 0%;
+	left: 5%;
+	cursor: pointer;
 	background-color: red;
-	height: 50%;
-	width: 10%;
-	top: 33%;
-	left: 21.5%;
-	opacity: 0%;
 }
-.redHitBox2 {
-	z-index: 4;
+.textDiv2 {
+	z-index: 6;
 	position: absolute;
-	background-color: deeppink;
-	height: 50%;
-	width: 11%;
+	height: 30%;
+	width: 90%;
 	top: 33%;
-	left: 12%;
+	left: 5%;
+	cursor: pointer;
+	background-color: red;
+}
+.textDiv3 {
+	z-index: 6;
+	position: absolute;
+	height: 30%;
+	width: 90%;
+	top: 66%;
+	left: 5%;
+	cursor: pointer;
+	background-color: red;
+}
+.textDiv4 {
+	z-index: 5;
+	position: absolute;
+	height: 4.35vw;
+	width: 30.6vw;
+	top: calc(50vh - 6.7vw);
+	left: 66.7vw;
+	background-color: rgba(106, 37, 62, 0.26);
+	display: none;
+	background-color: antiquewhite;
+}
+
+
+
+.misHitBox {
+	position: absolute;
+	top: 16.3%;
+	left: 54.6%;
+	display: block;
+	width: 7%;
+	z-index: 5;
+}
+.misHitPoly {
+	cursor: pointer;
+	fill: blue;
+	opacity: 40%;
+}
+.arsonHitBox {
+	position: absolute;
+	top: 15.5%;
+	left: 60.6%;
+	display: block;
+	width: 6.4%;
+	z-index: 5;
+}
+.arsonHitPoly {
+	cursor: pointer;
+	fill: yellow;
+	opacity: 40%;
+}
+.fnHitBox {
+	position: absolute;
+	top: 12.6%;
+	left: 66.1%;
+	display: block;
+	width: 8.8%;
+	z-index: 4;
+}
+.fnHitPoly {
+	cursor: pointer;
+	fill: red;
+	opacity: 40%;
+}
+
+
+.misSvg {
+	position: absolute;
+	top: 6%;
+	left: 45%;
+	display: none;
+	width: 51%;
+	z-index: 20;
+}
+.misPoly {
+	cursor: pointer;
 	opacity: 0%;
 }
 
-.redClickBox {
-	z-index: 8;
+.arsonClipDiv {
 	position: absolute;
-	background-color: cyan;
-	height: 50%;
-	width: 8%;
-	top: 33%;
-	left: 23%;
-	opacity: 0%;
+	clip-path: url(#arsonClip);
+	height: 25.5vw;
+	width: 25.8vw;
+	top: calc(50vh - 1.6vw);
+	left: 73.7vw;
+	display: none;
+	z-index: 22;
+	cursor: pointer;
+
+}
+.vwClipDiv {
+	position: absolute;
+	clip-path: url(#vwClip);
+	height: 25.4vw;
+	width: 26.7vw;
+	top: calc(50vh - 1.6vw);
+	left: 79vw;
+	z-index: 20;
+	display: none;
+	cursor: pointer;
+
+}
+.vwClipDivSit {
+	position: absolute;
+	clip-path: url(#vwClipSit);
+	height: 16vw;
+	width: 16vw;
+	top: calc(50vh + 9vw);
+	left: 84.7vw;
+	z-index: 20;
+	display: none;
+	cursor: pointer;
+
+}
+.fnClipDiv {
+	position: absolute;
+	clip-path: url(#fnClip);
+	height: 30vw;
+	width: 31vw;
+	top: calc(50vh - 6vw);
+	left: 74.5vw;
+	z-index: 18;
+	display: none;
+	cursor: pointer;
+
+}
+.doorClipDiv {
+	position: absolute;
+	height: 34vw;
+	width: 15vw;
+	top: calc(50vh - 9.6vw);
+	left: 74.5vw;
+	z-index: 15;
+	display: none;
 	cursor: pointer;
 }
 
-.redCurtain {
-	z-index: 2;
-	position: absolute;
-	background-color: dodgerblue;
-	height: 57.87%;
-	width: 31.69%;
-	top: 29.72%;
-	left: 6.27%;
-	opacity: 100%;
+.canvas {
+	left: 0;
+	right: 0;
+	width: 400%;
+	height: 100%;
+	position: relative;
 }
-
-.whiteHitBox {
-	z-index: 4;
+.canvasClass {
 	position: absolute;
-	background-color: deepskyblue;
-	height: 45%;
-	width: 9%;
-	top: 38%;
-	left: 62.5%;
-	opacity: 0%;
+	height: 30vw;
+	width: 26.7vw;
+	top: calc(50vh - 6vw);
+	left: 73.3vw;
 }
-
-.whiteClickBox {
-	z-index: 8;
+.fnClass {
 	position: absolute;
-	background-color: magenta;
-	height: 45%;
-	width: 9%;
-	top: 38%;
-	left: 62.5%;
-	opacity: 0%;
+	height: 30.5vw;
+	width: 26vw;
+	top: calc(50vh - 6vw);
+	left: 78.6vw;
+	z-index: 1;
 }
-
-.whiteCurtain {
-	z-index: 2;
+.misClass {
 	position: absolute;
-	background-color: seagreen;
-	height: 54.26%;
-	width: 16.76%;
-	top: 31.39%;
-	left: 58.87%;
-	opacity: 100%;
+	height: 30vw;
+	width: 26.7vw;
+	top: calc(50vh - 6.4vw);
+	left: 75vw;
+	z-index: 0;
 }
-
-
+.arsonClass {
+	position: absolute;
+	height: 30vw;
+	width: 26.7vw;
+	top: calc(50vh - 6vw);
+	left: 73.3vw;
+	z-index: 5;
+}
