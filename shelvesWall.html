@@ -4,10 +4,13 @@
     <link rel="stylesheet" href="shelvesWallCSS.css" />
     <title>The Shelves</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
 
 </head>
 <body>
+
+
+
 
     <div class="bgDiv"
          id="bgDiv">
@@ -21,6 +24,7 @@
              opacity: 100%;
              " />
 
+        <!-- RED CURTAIN-->
         <div class="redHitBox1"
              id="redHitBox1"
              onmouseenter="red1MouseY(), redOpen()"
@@ -65,8 +69,6 @@
                 }
             </script>
         </div>
-
-
 
         <div class="redCurtain"
              id="redCurtain">
@@ -139,7 +141,7 @@
         </div>
 
         <div class="whiteCurtain"
-             id="Curtain">
+             id="whiteCurtain">
             <img src="shelvesIMG/w1.png"
                  id="whiteImg"
                  style="
@@ -204,13 +206,148 @@
                 });
             </script>
         </div>
+
+        <!-- ARROWS -->
+        <div class="rightArrowBox"
+             id="rightArrowBox">
+            <script>
+                document.getElementById("rightArrowBox").addEventListener("click", arrowClick);
+                function arrowClick() {
+                    var image = document.getElementById('bgDivImg');
+                    if (image.src.match("shelvesIMG/shelf1420White.png")) {
+                        document.getElementById("bgDivImg").src = "shelvesIMG/wall1420.png";
+                        document.getElementById("redHitBox1").style.display = "none";
+                        document.getElementById("redHitBox2").style.display = "none";
+                        document.getElementById("redClickBox").style.display = "none";
+                        document.getElementById("redCurtain").style.display = "none";
+                        document.getElementById("whiteHitBox").style.display = "none";
+                        document.getElementById("whiteCurtain").style.display = "none";
+                        document.getElementById("door2Div").style.display = "block";
+                    }
+                    else {
+                        document.getElementById("bgDivImg").src = "shelvesIMG/shelf1420White.png";
+                        document.getElementById("redHitBox1").style.display = "block";
+                        document.getElementById("redHitBox2").style.display = "block";
+                        document.getElementById("redClickBox").style.display = "block";
+                        document.getElementById("redCurtain").style.display = "block";
+                        document.getElementById("whiteHitBox").style.display = "block";
+                        document.getElementById("whiteCurtain").style.display = "block";
+                        document.getElementById("door2Div").style.display = "none";
+                    }
+                }
+            </script>
+        </div>
+        <div class="leftArrowBox"
+             id="leftArrowBox">
+            <script>
+                document.getElementById("leftArrowBox").addEventListener("click", arrowClick);
+            </script>
+        </div>
+
+
+
+        <!-- CANVAS DOOR-->
+        <div class="door2Div"
+             id="door2Div"
+             onmouseover="door2Open()"
+             onmouseout="door2Close()"
+             style="
+             display: none;">
+            <img src="shelvesIMG/g1.jpg"
+                 id="door2Img"
+                 style="
+             width: 100%;
+             height: 100%;
+             opacity: 100%;
+             " />
+            <script>
+                var door2Images = new Array()
+                door2Images = [
+                    "shelvesIMG/g1.jpg",
+                    "shelvesIMG/g2.jpg",
+                    "shelvesIMG/g3.jpg",
+                    "shelvesIMG/g4.jpg",
+                    "shelvesIMG/g5.jpg",
+                ];
+                var d2Numb = 0;
+                function door2Open() {
+                    var intervalDoor2Open = setInterval(
+                        function () {
+                            document.getElementById("door2Div").style.cursor = "pointer";
+                            document.getElementById("door2Img").src = door2Images[d2Numb];
+                            d2Numb = d2Numb + 1;
+                            if (d2Numb == 5) {
+                                clearInterval(intervalDoor2Open);
+                                d2Numb = 4;
+                            }
+                        }
+                        , 130);
+                    door2Div.addEventListener("mouseout", function () {
+                        clearInterval(intervalDoor2Open);
+                    });
+                }
+                function door2Close() {
+                    document.getElementById("door2Div").style.cursor = "default";
+                    var intervalDoor2Close = setInterval(
+                        function () {
+                            document.getElementById("door2Img").src = door2Images[d2Numb];
+                            d2Numb = d2Numb - 1;
+                            if (d2Numb == -1) {
+                                clearInterval(intervalDoor2Close);
+                                d2Numb = 0;
+                            }
+                        }
+                        , 130);
+                    door2Div.addEventListener("mouseenter", function () {
+                        clearInterval(intervalDoor2Close);
+                    });
+                }
+                door2Div.addEventListener("click", function () {
+                    document.location = 'https://fangknife.github.io/Fangknife.com/';
+                });
+            </script>
+        </div>
+
+        <!-- HEADS-->
+        <svg id="misHitBox" class="misHitBox"
+             viewBox="-3.5 0 30 30">
+            <polygon id="misHitPoly" class="misHitPoly" points="7.9,27 4.6,27 1.9,23.8 6.5,12.7 12.3,5.7 14.5,4.6 24.3,7.1 27.2,11.9 28.6,18.5 27.4,22.2 24.5,24.4 13.9,26.9
+		7.9,27.2 7.9,27" />
+        </svg>
+        <svg id="arsonHitBox" class="arsonHitBox"
+             viewBox="0 0 30 30">
+            <polygon id="arsonHitPoly" class="arsonHitPoly" points="11.8,27.8 9.2,27.8 6.7,22.9 6.5,21.1 2.9,11.1 2.9,10.7 8.7,9.1 10.4,3.2 16.3,5.9 24.1,3.8 23.7,9.7 27.1,10.7
+		25.2,21.9 23.9,23.5 19.5,24.9 17.3,27.4 11.8,27.8" />
+        </svg>
+
+
+        <svg id="fnHitBox" class="fnHitBox" viewBox="4 0 30 30">
+            <polygon id="fnHitPoly" class="fnHitPoly" points="7.2,3.4 7.4,3.4 10.1,6.7 12,7.1 16.4,5.3 16,8.5 23.8,7.8 22.6,12.2 28.2,14.1 22.9,17 27.2,19.4 4.1,26.4
+		4.6,20.4 3.9,12.9 2,8.9 4.7,9.5 4.7,7.7 7.2,3.4 7.2,3.4" />
+        </svg>
+
+
+
+    </div>
+    <!-- END BG DIV ^^^^^^-->
+    <!-- EXIT DOOR -->
+    <div class="doorBgDiv"
+         id="doorBgDiv">
+        <img src="shelvesIMG/doorBG.jpg"
+             style="
+             position: relative;
+             width: 100%;
+             height: 100%; " />
     </div>
 
-    <!-- DOOR -->
-    <div class="doorDiv"
-         id="doorDiv"
+    <div id="doorClipDiv" class="doorClipDiv"
          onmouseover="doorOpen()"
          onmouseout="doorClose()">
+    </div>
+
+    <div class="doorDiv"
+         id="doorDiv"
+         >
         <img src="shelvesIMG/door1.jpg"
              id="doorImg"
              style="
@@ -219,7 +356,6 @@
              height: 100%;
              opacity: 100%;
              " />
-
         <script>
             var doorImages = new Array()
             doorImages = [
@@ -228,46 +364,461 @@
                 "shelvesIMG/door3.jpg",
                 "shelvesIMG/door4.jpg",
                 "shelvesIMG/door5.jpg",
+                "shelvesIMG/door3.png",
+                "shelvesIMG/door4.png",
+                "shelvesIMG/door5.png",
             ];
             var dNumb = 0;
+            const element = document.getElementById('doorBgDiv');
             function doorOpen() {
-                var intervalDoorOpen = setInterval(
-                    function () {
-                        document.getElementById("doorImg").src = doorImages[dNumb];
-                        dNumb = dNumb + 1;
-                        if (dNumb == 5) {
-                            clearInterval(intervalDoorOpen);
-                            dNumb = 4;
-                            document.getElementById("doorDiv").style.cursor = "pointer";
-                        }
-                    }
-                    , 130);
-                doorDiv.addEventListener("mouseout", function () {
-                    clearInterval(intervalDoorOpen);
-                });
+                if (element.style.display === 'none') {
+                    var intervalDoorOpen = setInterval(
+                        function () {
+                            document.getElementById("doorClipDiv").style.cursor = "pointer";
+                            document.getElementById("doorImg").src = doorImages[dNumb];
+                            dNumb = dNumb + 1;
+                            if (dNumb == 5) {
+                                clearInterval(intervalDoorOpen);
+                                dNumb = 4;
+                            }
+                        }, 130);
+                    doorClipDiv.addEventListener("mouseout", function () {
+                        clearInterval(intervalDoorOpen);
+                    });
+                }
             }
+
             function doorClose() {
-                document.getElementById("doorDiv").style.cursor = "default";
-                var intervalDoorClose = setInterval(
-                    function () {
-                        document.getElementById("doorImg").src = doorImages[dNumb];
-                        dNumb = dNumb - 1;
-                        if (dNumb == -1) {
-                            clearInterval(intervalDoorClose);
-                            dNumb = 0;
-                        }
-                    }
-                    , 100);
-                doorDiv.addEventListener("mouseenter", function () {
-                    clearInterval(intervalDoorClose);
+                if (element.style.display === 'none') {
+                    document.getElementById("doorClipDiv").style.cursor = "default";
+                    var intervalDoorClose = setInterval(
+                        function () {
+                            document.getElementById("doorImg").src = doorImages[dNumb];
+                            dNumb = dNumb - 1;
+                            if (dNumb == -1) {
+                                clearInterval(intervalDoorClose);
+                                dNumb = 0;
+                            }
+                        }, 100);
+                    doorClipDiv.addEventListener("mouseenter", function () {
+                        clearInterval(intervalDoorClose);
+                    });
+                }
+                doorClipDiv.addEventListener("click", function () {
+                    document.location = 'https://fangknife.github.io/Fangknife.com/';
                 });
             }
-            doorDiv.addEventListener("click", function () {
-                document.location = 'https://fangknife.github.io/Fangknife.com/';
-            });
+
+            document.getElementById("fnHitPoly").addEventListener("click", fnHitClick);
+            function fnHitClick() {
+                document.getElementById("doorBgDiv").style.display = "block";
+                dNumb = 5;
+                document.getElementById("doorImg").src = doorImages[dNumb];
+                setTimeout(function () {
+                    dNumb = 6;
+                    document.getElementById("doorImg").src = doorImages[dNumb];
+                }, 150);
+                setTimeout(function () {
+                    dNumb = 7;
+                    document.getElementById("doorImg").src = doorImages[dNumb];
+                }, 300);
+                setTimeout(function () {
+                    dNumb = 6;
+                    document.getElementById("doorImg").src = doorImages[dNumb];
+                }, 2050);
+                setTimeout(function () {
+                    dNumb = 5;
+                    document.getElementById("doorImg").src = doorImages[dNumb];
+                }, 2100);
+                setTimeout(function () {
+                    dNumb = 0;
+                    document.getElementById("doorImg").src = doorImages[dNumb];
+                    document.getElementById("doorBgDiv").style.display = "none";
+                }, 2150);
+            }
         </script>
+
 
     </div>
 
+    <!-- VW 3D MODEL -->
+    <div class="vwDiv" id="vwDiv">
+        <img src="shelvesIMG/f1.jpg"
+             id="vwImg"
+             style="
+             position: relative;
+             width: 100%;
+             height: 100%;
+             " />
+        <script>
+            var vwImages = new Array()
+            vwImages = [
+                "shelvesIMG/f1.jpg",
+                "shelvesIMG/f2.jpg",
+                "shelvesIMG/f3.jpg",
+                "shelvesIMG/f4.jpg",
+                "shelvesIMG/f5.jpg",
+                "shelvesIMG/f6.jpg",
+                "shelvesIMG/f7.jpg",
+                "shelvesIMG/f8.jpg",
+                "shelvesIMG/f9.jpg",
+                "shelvesIMG/f10.jpg",
+                "shelvesIMG/f11.jpg",
+                "shelvesIMG/f12.jpg",
+                "shelvesIMG/f13.jpg",
+                "shelvesIMG/f14.jpg",
+                "shelvesIMG/f15.jpg",
+                "shelvesIMG/f16.jpg",
+                "shelvesIMG/f17.jpg",
+                "shelvesIMG/f18.jpg",
+                "shelvesIMG/f19.jpg",
+                "shelvesIMG/f20.jpg",
+                "shelvesIMG/f21.jpg",
+                "shelvesIMG/f22.jpg",
+                "shelvesIMG/f23.jpg",
+                "shelvesIMG/f24.jpg",
+                "shelvesIMG/f25.jpg",
+                "shelvesIMG/f26.jpg",
+                "shelvesIMG/vwPNG.png",
+                "shelvesIMG/sit0007.png",
+                "shelvesIMG/sit0000.png",
+            ];
+
+            document.getElementById("doorBgDiv").style.display = "none";
+            var vwNumb = 0;
+            doorDiv.addEventListener("mouseenter", function vwEmerge() {
+                document.getElementById("vwDiv").style.display = "block";
+                var intervalVwEmerge = setInterval(
+                    function () {
+                        document.getElementById("vwImg").src = vwImages[vwNumb];
+                        vwNumb = vwNumb + 1;
+                        if (vwNumb == 27) {
+                            clearInterval(intervalVwEmerge);
+                            vwDiv.classList.add('vwDiv2');
+                            doorDiv.removeEventListener("mouseenter", vwEmerge);
+                            document.getElementById("vwClipDiv").style.display = "block";
+                            document.getElementById("doorClipDiv").style.display = "block";
+                        }
+                    }, 100);
+                document.getElementById("fnHitPoly").addEventListener("click", fnHitClick);
+                function fnHitClick() {
+
+                    setTimeout(function () {
+                        vwNumb = 28;
+                        document.getElementById("vwImg").src = vwImages[vwNumb];
+                        vwDiv.classList.replace('vwDiv2', 'vwDiv3');
+                        vwClipDiv.classList.replace('vwClipDiv', 'vwClipDivSit');
+                    }, 800);
+
+                    setTimeout(function () {
+                        vwNumb = 27;
+                        document.getElementById("vwImg").src = vwImages[vwNumb];
+                        document.getElementById("vwDiv").style.display = "block";
+                        document.getElementById("vwClipDiv").style.display = "block";
+                    }, 2600);
+                };
+
+            });
+        </script>
+
+
+
+
+    </div>
+
+    <!-- TEXT BOXES-->
+    <div class="textDiv" id="textDiv">
+
+
+        <div class="textDiv1" id="textDiv1">
+            Who are you?
+        </div>
+        <div class="textDiv2" id="textDiv2">
+            What ya thinkin about?
+        </div>
+        <div class="textDiv3" id="textDiv3">
+            I like the red.
+        </div>
+    </div>
+
+    <div class="textDiv4" id="textDiv4">
+        <script>
+            textDiv1.addEventListener("click", function () {
+                document.getElementById("textDiv4").style.display = "block";
+                document.getElementById("textDiv4").innerHTML = "Hi, I'm VW.";
+            });
+            textDiv2.addEventListener("click", function () {
+                document.getElementById("textDiv4").style.display = "block";
+                document.getElementById("textDiv4").innerHTML = "The Notes? the Daydream? Not much.";
+            });
+            textDiv3.addEventListener("click", function () {
+                document.getElementById("textDiv4").style.display = "block";
+                document.getElementById("textDiv4").innerHTML = "Thanks, they're handmade. Want to see?";
+            });
+
+        </script>
+    </div>
+
+
+
+    <div class="canvasClass" id="canvasDiv">
+        <canvas class="canvas" id="canvasId" width="1312" height="405"> </canvas>
+        <script>
+
+
+            const SPRITE_WIDTH = 328;
+            const SPRITE_HEIGHT = 405;
+            function spritePositionToImagePosition(row, col) {
+                return {
+                    x: (col * SPRITE_WIDTH),
+                    y: (row * SPRITE_HEIGHT)
+                }
+            }
+            var canvas = document
+                .querySelector('canvas');
+            var context = canvas
+                .getContext('2d');
+
+            var spriteSheetURL = 'fn/fnSprites.png';
+            var image = new Image();
+            image.src = spriteSheetURL;
+
+            var row = 0;
+            var col = 0;
+            var speed;
+            var newSpeed;
+            var clear;
+            var intervalAni = setInterval(ani, speed);
+
+            function ani() {
+                if (newSpeed != speed) {
+                    clearInterval(intervalAni);
+                    speed = newSpeed;
+                    intervalAni = setInterval(ani, speed);
+                }
+                if (clear === 0) {
+                    clearInterval(intervalAni);
+                }
+
+
+                if (spriteSheetURL == "fn/fnSprites.png" && row < 6 && col === 3) {
+                    row += 1;
+                    col = 0;
+                }
+                if (spriteSheetURL == "fn/fnSprites.png" && row === 6 && col >= 1) {
+                    colX = 0;
+                    document.getElementById("fnClipDiv").style.display = "block";
+                    document.getElementById("fnHitBox").style.display = "block";
+                    document.getElementById("misHitBox").style.display = "block";
+                    document.getElementById("arsonHitBox").style.display = "block";
+                    setTimeout(function () {
+                        col = 2;
+
+                    }, 300);
+                }
+                else if (spriteSheetURL == "fn/fnSprites.png" && row === 6 && col === 2) {
+                    clear = 0;
+
+                }
+
+                if (spriteSheetURL == "misery/misSprites.jpg" && row < 4 && col === 3 && colX === 1) {
+                    row += 1;
+                    col = 0;
+                }
+                if (spriteSheetURL == "misery/misSprites.jpg" && row > 0 && col === 0 && colX === -1) {
+                    row -= 1;
+                    col = 3;
+                }
+                if (spriteSheetURL == "misery/misSprites.jpg" && row === 4 && col === 3) {
+                    colX = -1;
+                }
+                if (spriteSheetURL == "misery/misSprites.jpg" && row === 0 && col === 0) {
+                    colX = 1;
+                }
+
+
+                if (spriteSheetURL == "arson/arsonSprites.png" && row === 0 && col === 3 && colX === 1) {
+                    row += 1;
+                    col = 0;
+                }
+                if (spriteSheetURL == "arson/arsonSprites.png" && row === 1 && col === 0 && colX === -1) {
+                    row -= 1;
+                    col = 3;
+                }
+                if (spriteSheetURL == "arson/arsonSprites.png" && row === 1 && col === 3) {
+                    colX = -1;
+                }
+                if (spriteSheetURL == "arson/arsonSprites.png" && row === 0 && col === 0) {
+                    colX = 1;
+                }
+
+                var position = spritePositionToImagePosition(row, col);
+                context.clearRect(
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                );
+                context.drawImage(
+                    image,
+                    position.x,
+                    position.y,
+                    SPRITE_WIDTH,
+                    SPRITE_HEIGHT,
+                    0,
+                    0,
+                    SPRITE_WIDTH,
+                    SPRITE_HEIGHT
+                );
+                col += colX;
+                image.src = spriteSheetURL;
+            }
+
+
+            document.getElementById("misHitPoly").addEventListener("click", misHitClick);
+            function misHitClick() {
+                spriteSheetURL = "misery/misSprites.jpg";
+                image.src = spriteSheetURL;
+                row = 0;
+                col = 0;
+                colX = 1;
+                newSpeed = 100;
+                clear = 1;
+                canvasDiv.classList.add('misClass');
+                canvasDiv.classList.remove('canvasClass', 'fnClass', 'arsonClass');
+
+                document.getElementById("doorClipDiv").style.display = "block";
+                document.getElementById("misSvg").style.display = "block";
+                document.getElementById("arsonClipDiv").style.display = "none";
+                document.getElementById("fnClipDiv").style.display = "none";
+                document.getElementById("vwDiv").style.display = "none";
+                document.getElementById("vwClipDiv").style.display = "none";
+            }
+            document.getElementById("fnHitPoly").addEventListener("click", fnHitClick);
+            function fnHitClick() {
+                spriteSheetURL = "fn/fnSprites.png";
+                image.src = spriteSheetURL;
+                row = 0;
+                col = 0;
+                colX = 1;
+                newSpeed = 85;
+                clear = 1;
+                canvasDiv.classList.add('fnClass');
+                canvasDiv.classList.remove('canvasClass', 'misClass', 'arsonClass');
+
+                document.getElementById("doorClipDiv").style.display = "block";
+                document.getElementById("arsonClipDiv").style.display = "none";
+                document.getElementById("fnClipDiv").style.display = "none";
+                document.getElementById("misSvg").style.display = "none";
+                document.getElementById("misHitBox").style.display = "none";
+                document.getElementById("arsonHitBox").style.display = "none";
+                document.getElementById("fnHitBox").style.display = "none";
+
+
+            }
+            document.getElementById("arsonHitPoly").addEventListener("click", arsonHitClick);
+            function arsonHitClick() {
+                spriteSheetURL = "arson/arsonSprites.png";
+                image.src = spriteSheetURL;
+                row = 0;
+                col = 0;
+                colX = 1;
+                newSpeed = 150;
+                clear = 1;
+                canvasDiv.classList.add('arsonClass');
+                canvasDiv.classList.remove('canvasClass', 'fnClass', 'misClass');
+
+                document.getElementById("doorClipDiv").style.display = "block";
+                document.getElementById("arsonClipDiv").style.display = "block";
+                document.getElementById("misSvg").style.display = "none";
+                document.getElementById("fnClipDiv").style.display = "none";
+                document.getElementById("vwClipDiv").style.display = "none";
+                document.getElementById("vwDiv").style.display = "none";
+            }
+        </script>
+
+        <svg id="misSvg" class="misSvg" viewBox="0 0 250 500">
+            <polygon id="misPoly" class="misPoly" points="165.5,55.7 168.8,71.2 204.1,91.8 220.1,135.7 220.1,160.3 220.1,218.5 209.4,238.4 206.3,264.4 207.9,337.2
+		212.8,426.8 212.8,452.9 212.8,491.1 192.8,500.9 172.2,515.1 157.3,544 126.2,540.3 122.1,531.6 121.9,524.6 110.6,520.3
+		97.5,521.1 80.9,527.3 52.2,533.6 37.8,524.9 38.8,512.2 55.1,504.7 66.6,493.4 67.5,486.3 64.1,452.5 67.1,427.8 71,388.1
+		88.1,281.9 112.4,211.8 113.4,180.6 108.2,128.1 112.3,108.9 112,96.1 91.6,70 87.4,39.4 97.1,20 109,11.3 130.4,11.8 149.6,18.5
+		160.4,37 165.5,55.7" />
+            <script>
+                misSvg.addEventListener("click", function () {
+                    document.location = 'https://fangknife.github.io/TheShelves/misery/Misery.html';
+                });
+            </script>
+        </svg>
+
+    </div>
+
+    <div id="arsonClipDiv" class="arsonClipDiv"></div>
+    <svg width="0" height="0">
+        <clipPath id="arsonClip" clipPathUnits="objectBoundingBox">
+            <path d="M0.616,0.652l0.005,0.021l0.057,0.165L0.68,0.843l0.039,0.03
+		l0.024,0.022l0,0.064l0.03,0.032l0.055-0.016l0.001-0.044L0.785,0.769L0.78,0.722l0.03-0.227L0.82,0.475l0.028-0.018l0.084,0.045
+		L0.95,0.492l0.011-0.049L0.943,0.397L0.925,0.381l0.019-0.015l0.018-0.039L0.933,0.294L0.882,0.265L0.768,0.184L0.742,0.149
+		l-0.003-0.01l0-0.027L0.727,0.067l-0.018-0.02L0.647,0.012L0.592,0.015L0.508,0.062L0.499,0.107l0.012,0.066L0.502,0.204
+		l-0.04,0.072L0.444,0.33l-0.01,0.011L0.189,0.377L0.171,0.384L0.042,0.502L0.038,0.517l0.015,0.008l0.088-0.007l0.015-0.005
+		l0.033,0.005l0.04,0.024l0.099,0.005l0.014-0.004l0.076-0.041l0.048-0.012l0.029,0.008L0.481,0.528l-0.07,0.086L0.385,0.706
+		l0.014,0.136l-0.042,0.07L0.324,0.923L0.312,0.934l0.01,0.019l0.036,0.019l0.014,0.003l0.105-0.022l0.029-0.035l0.001-0.032
+		l0.059-0.178l0.008-0.011L0.616,0.652L0.616,0.652z"></path>
+        </clipPath>
+    </svg>
+
+    <div id="fnClipDiv" class="fnClipDiv"></div>
+    <svg width="0" height="0">
+        <clipPath id="fnClip" clipPathUnits="objectBoundingBox">
+            <path d="M0.718,0.615l0.005,0l0.036,0.109l0.009,0.008l0.006-0.01
+		L0.711,0.454l0.031-0.071l0.015-0.094L0.737,0.183l0.033-0.016l0.023,0.006l0.01-0.004L0.798,0.142l0.009-0.027L0.784,0.063
+		l0.011-0.015l-0.01-0.016L0.754,0.038L0.732,0.027l-0.008-0.02L0.713-0.004L0.706,0.009L0.628,0.056L0.66,0.201L0.65,0.224
+		L0.632,0.237l-0.08,0.112L0.549,0.381l0.013,0.012L0.574,0.42l0.055,0.381l-0.03,0.13L0.586,0.944l0.008,0.022l0.027-0.001
+		L0.65,0.982l0.09-0.035l0.021-0.022L0.715,0.628L0.718,0.615L0.718,0.615z"></path>
+        </clipPath>
+    </svg>
+
+    <div id="vwClipDiv" class="vwClipDiv" onclick="text()">
+        <script>
+            function text() {
+                document.getElementById("textDiv").style.display = "block";
+            };
+
+        </script>
+
+    </div>
+    <svg width="0" height="0">
+        <clipPath id="vwClip" clipPathUnits="objectBoundingBox">
+            <path d="M0.367,0.929v0.008l0.12,0.046l0.015-0.009l0.014-0.058l0.07-0.071l0.035,0.072L0.599,0.945l-0.03,0.016
+	L0.558,0.975l0.01,0.015l0.119-0.004l0.007-0.014L0.644,0.762l0.09-0.144l0.051-0.043l0.03-0.218L0.784,0.227l-0.02-0.034
+	L0.763,0.179l0.035-0.06L0.793,0.067L0.778,0.043L0.735,0.011l-0.078,0L0.629,0.036L0.608,0.075L0.605,0.121l0.074,0.098
+	L0.632,0.392L0.638,0.42l0.03,0.024l-0.15,0.218l-0.003,0.06l0.02,0.03l0.001,0.023l-0.07,0.12l-0.084,0.02L0.367,0.929L0.367,0.929
+	z"></path>
+        </clipPath>
+    </svg>
+
+    <svg width="0" height="0">
+        <clipPath id="vwClipSit" clipPathUnits="objectBoundingBox">
+            <path d="M0.704,0.592L0.672,0.532L0.636,0.51L0.529,0.526
+		L0.53,0.604l0.011,0.013L0.495,0.71L0.224,0.854L0.076,0.847L0.075,0.855l0.088,0.083l0.055,0l0.035-0.033l0.124-0.044L0.382,0.87
+		L0.282,0.925L0.269,0.951h0.197l-0.01-0.086l0.102-0.098l0.149,0.196l0.11-0.007l0.061-0.058l0.102-0.285L0.962,0.485L0.903,0.436
+		L0.878,0.379l0.02-0.083L0.886,0.247L0.84,0.221l0.019-0.01L0.795,0.208L0.791,0.19L0.787,0.189L0.625,0.241L0.72,0.429
+		l0.065,0.012L0.792,0.44l0.019,0.036l-0.07,0.056L0.704,0.592L0.704,0.592z"></path>
+        </clipPath>
+    </svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
-</html>
+</html >
