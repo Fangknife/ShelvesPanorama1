@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="theArsonistCSS.CSS" />
+    <title>The Arsonist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+<body>
+
+    <div class="topDiv"
+         id="topDiv">
+    </div>
+    <div class="bottomDiv"
+         id="bottomDiv">
+    </div>
+    <div class="leftDiv"
+         id="leftDiv">
+    </div>
+    <div class="rightDiv"
+         id="rightDiv">
+    </div>
+
+
+    <div class="bgHitBox" id="bgHitBox"
+         onmouseenter="mouseOn()"
+         onmouseout="mouseOff()">
+    </div>
+
+    <div class="bgDiv"
+         id="bgDiv">
+        <img src="camRoom.jpg"
+             id="bgDivImg"
+             style="
+             position: relative;
+             left: 0;
+             top: 0;
+             height: 100%;
+             " />
+
+        <img src="camRoom2.jpg"
+             id="bgDivImg2"
+             style="
+             position: relative;
+             left: 0;
+             top: 0;
+             height: 100%;
+             display: none;
+             " />
+
+    </div>
+
+    <script type="text/javascript">
+        var element = document.getElementById("bgDivImg");
+
+        window.onresize = function () {
+            element.style.left = 0;
+        };
+
+        function mouseOff() {
+            clearInterval(mouseInterval);
+        };
+
+        function mouseOn() {
+            mouseInterval = setInterval(checkMousePos, 60);
+
+            var mouseX;
+            var pageX;
+            var speedX; //speed multiplier in relation to mouse dist from center
+            var imgWidth;
+            var speedMult;
+
+            document.addEventListener('mousemove', function (event) {
+                mouseX = event.clientX;
+                pageX = window.innerWidth;
+                imgWidth = element.width;
+                speedMult = imgWidth / 70;
+            })
+
+
+            function checkMousePos() {
+                var imgX = parseInt(element.style.left); //image's distance it's traveled
+                document.getElementById("hitboxDiv").style.left = imgX + (0.8 * imgWidth) + 'px';
+
+                if (0.6 >= mouseX >= 0.4) {
+                    speedX = 0;
+                }
+                else if (mouseX > 0.6 * pageX && -1.98 * imgX < imgWidth) { //img moves to left (camera moves right)
+                    speedX = mouseX / pageX - 0.6; //returns value 0 to 0.4
+                    element.style.left = imgX + speedX * -1 * speedMult + 'px';
+                }
+                else if (mouseX < 0.4 * pageX && imgX <= 0) { // img moves to the right (camera moves left)
+                    speedX = (pageX - mouseX) / pageX - 0.6; //returns value 0 to 0.4
+                    element.style.left = imgX + speedX * speedMult + 'px';
+                }
+                else if (-1.98 * imgX > imgWidth) {
+                    speedX = 0;
+                    document.getElementById("hitboxDiv").style.display = "block";
+                }
+            }
+        };
+
+        function arsClick() {
+            clearInterval(mouseInterval);
+
+            document.getElementById("bgHitBox").style.display = "none";
+            document.getElementById("bgDivImg2").style.display = "block";
+            document.getElementById("bgDivImg").style.display = "none";
+
+            var aniImg = new Array()
+            aniImg = [
+                "camRoom2.jpg", // 0 --> goes to looking up
+                "camRoom3.jpg", // 1
+                "camRoom4.jpg", // 2
+                "cam1.jpg",       // 3
+                "cam2.jpg",
+                "cam3.jpg",
+                "cam4.jpg",
+                "cam5.jpg",
+                "cam6.jpg",
+                "cam7.jpg",
+                "cam8.jpg",
+                "cam9.jpg", // 11
+            ];
+            var numb = 0;
+            setTimeout(function () {
+                numb = 1;
+                document.getElementById("bgDivImg2").src = aniImg[numb];
+                const borders = document.querySelectorAll("#topDiv, #bottomDiv, #leftDiv, #rightDiv, #bgDiv");
+                borders.forEach((element) => {
+                    element.style.backgroundColor = "black";
+                });
+            }, 800);
+            setTimeout(function () {
+                numb = 2;
+                document.getElementById("bgDivImg2").src = aniImg[numb];
+                document.getElementById("hitboxDiv").style.display = "none";
+                vwDiv.classList.replace('vwDiv2', 'vwDiv3');
+            }, 1000);
+
+            setTimeout(function () {
+
+                var aniInterval = setInterval(
+                    function () {
+                        document.getElementById("bgDivImg2").src = aniImg[numb];
+                        numb = numb + 1;
+                        if (numb == 12) {
+                            clearInterval(aniInterval);
+                            numb = 11;
+                        }
+                    }, 70);
+            }, 1500);
+        }
+
+
+    </script>
+
+    <div id="hitboxDiv" class="hitboxDiv"
+         style="left: 0;"
+         onmouseover="arsClick()">
+    </div>
+
+
+    <svg width="0" height="0" id="arsSvg">
+        <clipPath id="clipPath" clipPathUnits="objectBoundingBox">
+            <path d=" M0.57,1l0.14-0.1L0.69,0.75l0.02-0.04l0.11-0.06L0.79,0.38L0.46,0.1L0.45,0.06
+		L0.42,0.05l-0.02,0L0.39,0.03l0-0.02L0.37,0.01L0.31,0.03l-0.01,0L0.28,0.03L0.27,0.06L0.26,0.07l-0.03,0L0.2,0.13l0.18,0.25
+		l-0.04,0.1L0.27,0.54l0.05,0.08L0.4,0.64l0.01,0.02l-0.1,0.2L0.36,0.9l0.11-0.15l0.01,0l0.11,0.1l0,0.03L0.52,0.94l0.02,0.06
+		L0.57,1L0.57,1z"></path>
+        </clipPath>
+
+    </svg>
+
+
+</body>
+</html>

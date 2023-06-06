@@ -1,0 +1,75 @@
+body {
+	background-color: white;
+	padding: 0px;
+	border-collapse: collapse;
+	margin: 0;
+	overflow: hidden;
+}
+
+.bgDiv {
+	position: absolute;
+	height: 45.68vw;
+	width: 86vw;
+	top: calc(50vh - 22.84vw);
+	left: 7vw;
+	z-index: 1;
+	background-color: white;
+}
+
+.bgHitBox {
+	position: absolute;
+	height: 45.68vw;
+	width: 100vw;
+	top: calc(50vh - 22.84vw);
+	left: 0vw;
+	z-index: 5;
+}
+
+
+.topDiv {
+	position: absolute;
+	height: calc(50vh - 22.84vw);
+	width: 100vw;
+	top: 0%;
+	left: 0%;
+	z-index: 3;
+	background-color: white;
+}
+.bottomDiv {
+	position: absolute;
+	height: calc(50vh - 22.84vw);
+	width: 100vw;
+	bottom: 0%;
+	left: 0%;
+	z-index: 3;
+	background-color: white;
+}
+.leftDiv {
+	position: absolute;
+	height: 100vh;
+	width: 7vw;
+	top: 0%;
+	left: 0vw;
+	z-index: 3;
+	background-color: white;
+}
+.rightDiv {
+	position: absolute;
+	height: 100vh;
+	width: 15vw;
+	top: 0%;
+	left: 93vw;
+	z-index: 3;
+	background-color: white;
+}
+
+.hitboxDiv {
+	position: absolute;
+	clip-path: url(#clipPath);
+	z-index: 6;
+	cursor: pointer;
+	height: 24vw;
+	width: 24vw;
+	top: calc(50vh - 3.5vw);
+	display: none;
+}
