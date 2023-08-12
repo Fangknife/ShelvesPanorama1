@@ -3,12 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Shelves</title>
+    <title>The Shelves (Left)</title>
     <link rel="stylesheet" href="shelvesLeftCSS.css" />
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
-
-
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
@@ -39,9 +36,10 @@
                         }
                     </script>
                 </div>
-                <div id="qText" class="qText">
+                <div id="qText" class="qText"
+                     style=" display: none " />
                     To move camera: Click and drag or use Arrow keys.
-                    <p>Zoom in with Shift, Zoom out with Ctrl, use Scroll wheel, or Pinch.
+                    <p>Zoom in with Shift, Zoom out with Ctrl. Use Scroll wheel, or Pinch on touchscreen.
                     <p>Made using <a href='https://pannellum.org/'>Panellum</a>.
 
                 </div>
@@ -61,7 +59,9 @@
         <div id="panorama">
             <div id="controls">
 
-                <div class="fs" id="fullscreen" onclick="fsClick()">
+                <div class="fs" 
+                     id="fullscreen"
+                     onclick="fsClick()">
                 </div>
 
                 <div class="controlEye"
@@ -92,16 +92,19 @@
                 <div class="controlQ"
                      onclick="controlQClick()">
                     <script>
+                        const elementQ = document.getElementById('qText');
                         function controlQClick() {
-                            document.getElementById("items2").style.display = "block";
-                            document.getElementById("itemsIMG").style.visibility = "hidden";
-                            document.getElementById("items3").style.backgroundColor = "black";
-                            document.getElementById("itemsText").style.display = "none";
-                            document.getElementById("qText").style.display = "block";
-  
-
-
-
+                            if (elementQ.style.display === 'none') {
+                                document.getElementById("items2").style.display = "block";
+                                document.getElementById("itemsIMG").style.visibility = "hidden";
+                                document.getElementById("items3").style.backgroundColor = "black";
+                                document.getElementById("itemsText").style.display = "none";
+                                document.getElementById("qText").style.display = "block";
+                            }
+                            else if (elementQ.style.display === 'block') {
+                                document.getElementById("items2").style.display = "none";
+                                document.getElementById("qText").style.display = "none";
+                            };
                         }
                     </script>
                 </div>
@@ -114,7 +117,7 @@
         <script>
             viewer = pannellum.viewer('panorama', {
                 "type": "equirectangular",
-                "panorama": "https://i.imgur.com/uptj9Uz.jpeg",
+                "panorama": "https://i.imgur.com/D8GStmz.jpeg",
                 "autoLoad": true,
                 "showControls": false,
                 "preview": "shelvesIMG/loadImg2.jpg",
