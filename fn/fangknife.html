@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="Misery.CSS" />
+    <title>Misery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+<body>
+
+
+     <div class="canvasDiv"
+         id="canvasDiv">
+        <canvas id="canvasId" width="9119" height="611"> </canvas>
+    </div>
+
+     <script>
+        const SPRITE_WIDTH = 829;
+        const SPRITE_HEIGHT = 611;
+        function spritePositionToImagePosition(row, col) {
+            return {
+                x: (
+                    col * SPRITE_WIDTH
+                ),
+                y: (
+                    row *  SPRITE_HEIGHT
+                )
+            }
+        }
+
+        var canvas = document
+            .querySelector('canvas');
+        var context = canvas
+            .getContext('2d');
+
+
+        var spriteSheetURL = 'MisAll.png';
+        var image = new Image();
+        image.src = spriteSheetURL;
+
+
+        var row = 0;
+        var col = 0;
+        
+         document.onmousemove = function (event) {
+             var mouseX = event.clientX;
+             var mouseY = event.clientY;
+             var pageX = window.innerWidth;
+             var pageY = window.innerHeight;
+
+             if (mouseX <= pageX / 11) {
+                 col = 0;
+             }
+             else if (mouseX > pageX / 11 && mouseX <= pageX / 5.5) {
+                 col = 1;
+             }
+             else if (mouseX > pageX / 5.5 && mouseX <= pageX / 3.66) {
+                 col = 2;
+             }
+             else if (mouseX > pageX / 3.66 && mouseX <= pageX / 2.75) {
+                 col = 3;
+             }
+             else if (mouseX > pageX / 2.75 && mouseX <= pageX / 2.2) {
+                 col = 4;
+             }
+             else if (mouseX > pageX / 2.2 && mouseX <= pageX / 1.83) {
+                 col = 5;
+             }
+             else if (mouseX > pageX / 1.83 && mouseX <= pageX / 1.57) {
+                 col = 6;
+             }
+             else if (mouseX > pageX / 1.57 && mouseX <= pageX / 1.375) {
+                 col = 7;
+             }
+             else if (mouseX > pageX / 1.375 && mouseX <= pageX / 1.222) {
+                 col = 8;
+             }
+             else if (mouseX > pageX / 1.222 && mouseX <= pageX / 1.1) {
+                 col = 9;
+             }
+             else if (mouseX > pageX / 1.1 && mouseX <= pageX / 1) {
+                 col = 10;
+             }
+
+
+             if (mouseY <= pageY / 4) {
+                 row = 0;
+             }
+             else if (mouseY > pageY / 4 && mouseY <= pageY / 2) {
+                 row = 1;
+             }
+             else if (mouseY > pageY / 2 && mouseY <= pageY / 1.333) {
+                 row = 2;
+             }
+             else if (mouseY > pageY / 1.333 && mouseY <= pageY / 1) {
+                 row = 3;
+             }
+
+
+
+
+                var position = spritePositionToImagePosition(row, col);
+                context.clearRect(
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                );
+                context.drawImage(
+                    image,
+                    position.x,
+                    position.y,
+                    SPRITE_WIDTH,
+                    SPRITE_HEIGHT,
+                    0,
+                    0,
+                    SPRITE_WIDTH,
+                    SPRITE_HEIGHT
+                );
+                image.src = spriteSheetURL;
+            }
+           
+
+                 
+        
+    </script>
+
+
+</body>
+</html>
