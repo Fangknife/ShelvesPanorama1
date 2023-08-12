@@ -4,7 +4,6 @@ body {
 	border-collapse: collapse;
 	margin: 0;
 	overflow: hidden;
-	-webkit-tap-highlight-color: transparent;
 }
 
 .hide {
@@ -156,6 +155,7 @@ div.custom-tooltip3:hover span {
 	width: calc(80vw - 20px);
 	left: calc(10vw + 10px);
 	top: calc(5vh + 35px);
+	text-align: center;
 }
 .items2 {
 	display: none;
@@ -181,6 +181,7 @@ div.custom-tooltip3:hover span {
 	width: calc(100% - 20px);
 	left: 10px;
 	top: 10px;
+	text-align: center;
 }
 .itemsX {
 	position: relative;
@@ -191,24 +192,24 @@ div.custom-tooltip3:hover span {
 
 
 @media only screen and (max-height: 95vw) {
-.itemsCenter {
-	height: 100%;
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
-	top: calc(50% + 2px);
-	left: 50%;
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-
-}}
+	.itemsCenter {
+		height: 100%;
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+		top: calc(50% + 2px);
+		left: 50%;
+		-ms-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		text-align: center;
+	}}
 @media only screen and (max-height: 95vw) {
 	.itemsIMG {
 		height: calc(100% - 45px);
 		max-width: 100%;
 		position: relative;
-
-}}
+		text-align: center;
+	}}
 @media only screen and (max-height: 95vw) {
 	.itemsText {
 		z-index: 40;
@@ -219,6 +220,7 @@ div.custom-tooltip3:hover span {
 		font-size: 18px;
 		position: relative;
 		top: -2px;
+		text-align: center;
 	}}
 @media only screen and (min-height: 95vw) {
 	.itemsCenter {
@@ -231,13 +233,14 @@ div.custom-tooltip3:hover span {
 		left: 50%;
 		-ms-transform: translate(-50%, -50%);
 		transform: translate(-50%, -50%);
+		text-align: center;
 	}}
 @media only screen and (min-height: 95vw) {
 	.itemsIMG {
 		max-width: 100%;
 		max-height: 100%;
 		position: relative;
-		
+		text-align: center;
 	}}
 @media only screen and (min-height: 95vw) {
 	.itemsText {
@@ -248,7 +251,7 @@ div.custom-tooltip3:hover span {
 		height: 20px;
 		font-size: 18px;
 		position: relative;
-		
+		text-align: center;
 	}}
 
 a:link {
@@ -267,7 +270,6 @@ a:hover, a:active {
 }
 .qText {
 	z-index: 42;
-	display: none;
 	text-align: left;
 	background-color: none;
 	color: white;
