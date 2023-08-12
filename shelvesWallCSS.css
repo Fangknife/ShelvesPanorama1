@@ -204,11 +204,12 @@ body {
 	display: block;
 	width: 7%;
 	z-index: 5;
+	display: none;
 }
 .misHitPoly {
 	cursor: pointer;
 	fill: blue;
-	opacity: 40%;
+	opacity: 0%;
 }
 .arsonHitBox {
 	position: absolute;
@@ -217,11 +218,12 @@ body {
 	display: block;
 	width: 6.4%;
 	z-index: 5;
+	display: none;
 }
 .arsonHitPoly {
 	cursor: pointer;
 	fill: yellow;
-	opacity: 40%;
+	opacity: 0%;
 }
 .fnHitBox {
 	position: absolute;
@@ -230,15 +232,16 @@ body {
 	display: block;
 	width: 8.8%;
 	z-index: 4;
+	display: none;
 }
 .fnHitPoly {
 	cursor: pointer;
 	fill: red;
-	opacity: 40%;
+	opacity: 0%;
 }
 
 
-.misSvg {
+.misClipDiv {
 	position: absolute;
 	top: 6%;
 	left: 45%;
@@ -323,6 +326,7 @@ body {
 	width: 26.7vw;
 	top: calc(50vh - 6vw);
 	left: 73.3vw;
+	display: none;
 }
 .fnClass {
 	position: absolute;
@@ -331,6 +335,7 @@ body {
 	top: calc(50vh - 6vw);
 	left: 78.6vw;
 	z-index: 1;
+	display: block;
 }
 .misClass {
 	position: absolute;
@@ -339,6 +344,7 @@ body {
 	top: calc(50vh - 6.4vw);
 	left: 75vw;
 	z-index: 0;
+	display: block;
 }
 .arsonClass {
 	position: absolute;
@@ -347,4 +353,39 @@ body {
 	top: calc(50vh - 6vw);
 	left: 73.3vw;
 	z-index: 5;
+	display: block;
+}
+.notesArrowBox {
+	z-index: 12;
+	position: absolute;
+	height: 100vh;
+	width: 4vw;
+	top:0vh;
+	left: 96vw;
+	cursor: url('shelvesIMG/rArrow6.png'), url(shelvesIMG/rArrow7.svg), w-resize;
+}
+.dollDiv {
+	position: absolute;
+	height: 9.7%;
+	opacity: 100%;
+	top: 17.1%;
+	left: 49%;
+	z-index: 7;
+}
+.blackDiv {
+	position: absolute;
+	height: 19.7%;
+	opacity: 100%;
+	top: 29.5%;
+	left: 33%;
+	z-index: 3;
+}
+.blackHitBox {
+	z-index: 5;
+	position: absolute;
+	height: 4.6%;
+	width: 7%;
+	top: 39%;
+	left: 37%;
+	cursor: pointer;
 }
