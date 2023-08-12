@@ -3,85 +3,179 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Shelves (right)</title>
+    <title>The Shelves (Right)</title>
     <link rel="stylesheet" href="shelvesRightCSS.css" />
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
-
-
-
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 
+    <div class="items2" id="items2">
+        <div class="items3" id="items3">
+
+            <div class="itemsX" id="itemsX">
+                <img src="shelvesIMG/x3.png"
+                     id="itemsXIMG"
+                     onclick="hideItems()"
+                     onmouseover="itemsXHover()"
+                     onmouseout="itemsXOut()"
+                     style="
+                        height: 100%;
+                        " />
+                <script>
+                    function hideItems() {
+                        document.getElementById("items2").style.display = "none";
+                    }
+                    function itemsXHover() {
+                        document.getElementById("itemsXIMG").src = "shelvesIMG/x4.png";
+                        document.getElementById("items2").style.cursor = "pointer";
+                    }
+                    function itemsXOut() {
+                        document.getElementById("itemsXIMG").src = "shelvesIMG/x3.png";
+                        document.getElementById("items2").style.cursor = "default";
+                    }
+                </script>
+            </div>
+            <div id="qText" class="qText"
+                 style=" display: none " />
+                To move camera: Click and drag or use Arrow keys.
+                <p>Zoom in with Shift, Zoom out with Ctrl. Use Scroll wheel, or Pinch on touchscreen.
+                <p>Made using <a href='https://pannellum.org/'>Panellum</a>.
+
+            </div>
+
+            <div class="itemsCenter">
+                <img src="shelvesIMG/items.png"
+                     id="itemsIMG"
+                     class="itemsIMG" />
+                <div class="itemsText" id="itemsText">
+                    A little display area.
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div id="panorama">
         <div id="controls">
-            <div class="fs" id="fullscreen" onclick="fsClick()">
-                &#x2922;
 
+            <div class="fs"
+                 id="fullscreen"
+                 onclick="fsClick()">
             </div>
-            <div class="control1"
-                 onclick="control1Click()">
-                &#63;
+
+            <div class="controlEye"
+                 id="controlEye"
+                 onclick="controlEyeClick()">
                 <script>
-                    function control1Click() {
-                        document.getElementById("control2").style.display = "block";
+                    function controlEyeClick() {
+                        document.querySelectorAll('div.custom-tooltip2 span').forEach(function (e) { e.classList.add('hide') });
+                        document.querySelectorAll('.customhotspot2').forEach(function (e) { e.classList.add('hide') });
+                        document.getElementById("controlEye").style.display = "none";
+                        document.getElementById("controlEye2").style.display = "block";
+                    }
+                </script>
+            </div>
+            <div class="controlEye2"
+                 id="controlEye2"
+                 onclick="controlEye2Click()">
+                <script>
+                    function controlEye2Click() {
+                        document.querySelectorAll('div.custom-tooltip2 span').forEach(function (e) { e.classList.remove('hide') });
+                        document.querySelectorAll('.customhotspot2').forEach(function (e) { e.classList.remove('hide') });
+                        document.getElementById("controlEye2").style.display = "none";
+                        document.getElementById("controlEye").style.display = "block";
                     }
                 </script>
             </div>
 
-            <div class="control2"
-                 id="control2"
-                 style="display:none;">
-                <span class="controlX"
-                      id="controlX"
-                      onclick="controlXClick()">
-                    &nbsp;X
-                    <script>
-                        function controlXClick() {
-                            document.getElementById("control2").style.display = "none";
+            <div class="controlQ"
+                 onclick="controlQClick()">
+                <script>
+                    const elementQ = document.getElementById('qText');
+                    function controlQClick() {
+                        if (elementQ.style.display === 'none') {
+                            document.getElementById("items2").style.display = "block";
+                            document.getElementById("itemsIMG").style.visibility = "hidden";
+                            document.getElementById("items3").style.backgroundColor = "black";
+                            document.getElementById("itemsText").style.display = "none";
+                            document.getElementById("qText").style.display = "block";
                         }
-                    </script>
-                </span>
-                &nbsp; To move camera: Click and drag or use Arrow keys. <p>
-                    Zoom in with Shift, Zoom out with Ctrl, or use Scroll wheel.
+                        else if (elementQ.style.display === 'block') {
+                            document.getElementById("items2").style.display = "none";
+                            document.getElementById("qText").style.display = "none";
+                        };
+                    }
+                </script>
             </div>
         </div>
-
         <div class="top" id="top"></div>
         <div class="bottom"></div>
-
-
-
-
     </div>
-
-
-
-
 
     <script>
         viewer = pannellum.viewer('panorama', {
-
             "type": "equirectangular",
-            "panorama": "https://i.imgur.com/iLDVOCj.jpeg",
+            "panorama": "https://i.imgur.com/Qp0wlOc.jpeg",
             "autoLoad": true,
             "showControls": false,
             "preview": "shelvesIMG/loadImg2.jpg",
-            "pitch": 5,
-            "yaw": 76,
-            "hfov": 90,
+            "pitch": 6,
+            "yaw": 79,
+            "hfov": 75,
             "hotSpots": [
                 {
-                    "pitch": -9.4,
+                    "id": "exitSpot",
+                    "pitch": -8.4,
                     "yaw": 276,
-
                     "cssClass": "custom-hotspot",
                     "createTooltipFunc": hotspot,
                     "createTooltipArgs": "Exit",
                     "clickHandlerFunc": exitLink,
-
+                },
+                {
+                    "id": "eyeSpot1",
+                    "pitch": 24,
+                    "yaw": 310,
+                    "cssClass": "customhotspot2",
+                    "createTooltipFunc": hotspot2,
+                    "createTooltipArgs": "",
+                    "clickHandlerFunc": doorArtLink,
+                },
+                {
+                    "id": "eyeSpot2",
+                    "pitch": 18,
+                    "yaw": 104,
+                    "cssClass": "customhotspot2",
+                    "createTooltipFunc": hotspot2,
+                    "createTooltipArgs": "",
+                    "clickHandlerFunc": jewlreyLink,
+                },
+                {
+                    "id": "eyeSpot3",
+                    "pitch": 10,
+                    "yaw": 24,
+                    "cssClass": "customhotspot2",
+                    "createTooltipFunc": hotspot2,
+                    "createTooltipArgs": "",
+                    "clickHandlerFunc": mirrorArtLink,
+                },
+                {
+                    "id": "eyeSpot4",
+                    "pitch": 2,
+                    "yaw": 3,
+                    "cssClass": "customhotspot2",
+                    "createTooltipFunc": hotspot3,
+                    "createTooltipArgs": "",
+                    "clickHandlerFunc": shelvesLink,
+                },
+                {
+                    "id": "eyeSpot5",
+                    "pitch": -53,
+                    "yaw": 49,
+                    "cssClass": "customhotspot2",
+                    "createTooltipFunc": hotspot2,
+                    "createTooltipArgs": "",
+                    "clickHandlerFunc": outfitsLink,
                 },
             ]
 
@@ -89,11 +183,6 @@
         document.getElementById('fullscreen').addEventListener('click', function (e) {
             viewer.toggleFullscreen();
         });
-
-
-
-
-
 
         function hotspot(hotSpotDiv, args) {
             hotSpotDiv.classList.add('custom-tooltip');
@@ -104,30 +193,85 @@
             span.style.marginLeft = -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + 'px';
             span.style.marginTop = -span.scrollHeight - 12 + 'px';
         }
-
+        function hotspot2(hotSpotDiv, args) {
+            hotSpotDiv.classList.add('custom-tooltip2');
+            var span = document.createElement('span');
+            span.innerHTML = args;
+            hotSpotDiv.appendChild(span);
+            span.style.width = span.scrollWidth - 20 + 'px';
+            span.style.marginLeft = -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + 'px';
+            span.style.marginTop = -span.scrollHeight - 12 + 'px';
+        }
+        function hotspot3(hotSpotDiv, args) {
+            hotSpotDiv.classList.add('custom-tooltip3');
+            var span = document.createElement('span');
+            span.innerHTML = args;
+            hotSpotDiv.appendChild(span);
+            span.style.width = span.scrollWidth - 20 + 'px';
+            span.style.marginLeft = -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + 'px';
+            span.style.marginTop = -span.scrollHeight - 12 + 'px';
+        }
+        function hotspot4(hotSpotDiv, args) {
+            hotSpotDiv.classList.add('custom-tooltip3');
+            var span = document.createElement('span');
+            span.innerHTML = args;
+            hotSpotDiv.appendChild(span);
+            span.style.width = span.scrollWidth - 20 + 'px';
+            span.style.marginLeft = -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + 'px';
+            span.style.marginTop = -span.scrollHeight - 12 + 'px';
+        }
         function exitLink(hotSpotDiv, args) {
             window.open("https://fangknife.github.io/Fangknife.com/", "_self")
         }
-
-
-
+        function doorArtLink(hotSpotDiv, args) {
+            document.getElementById("items2").style.display = "block";
+            document.getElementById("itemsIMG").src = "shelvesIMG/art3.jpg";
+            document.getElementById("itemsText").innerHTML = "<span>Some art (placeholder photo). Eye painting by <a href = 'https://www.instagram.com/bug.dirt/''>@Bug.dirt</a>.</span>";
+            document.getElementById("itemsIMG").style.visibility = "visible";
+            document.getElementById("items3").style.backgroundColor = "white";
+            document.getElementById("itemsText").style.display = "block";
+            document.getElementById("qText").style.display = "none";
+        }
+        function jewlreyLink(hotSpotDiv, args) {
+            document.getElementById("items2").style.display = "block";
+            document.getElementById("itemsIMG").src = "shelvesIMG/art2.jpg";
+            document.getElementById("itemsText").innerHTML = "<span>Some art (placeholder photo). Painting by <a href = 'https://www.instagram.com/bug.dirt/''>@Bug.dirt</a>. Glass Knife by <a href = 'https://www.instagram.com/cosmikjest/''>@Cosmikjest</a>. Fangknife cat pin by <a href = 'https://www.instagram.com/xglue/''>@xGlue</a>.</span>";
+            document.getElementById("itemsIMG").style.visibility = "visible";
+            document.getElementById("items3").style.backgroundColor = "white";
+            document.getElementById("itemsText").style.display = "block";
+            document.getElementById("qText").style.display = "none";
+        }
+        function mirrorArtLink(hotSpotDiv, args) {
+            document.getElementById("items2").style.display = "block";
+            document.getElementById("itemsIMG").src = "shelvesIMG/art1.jpg";
+            document.getElementById("itemsText").innerHTML = "<span>Some art. Pocket by <a href = 'https://www.instagram.com/robynnseamstress/''>@Robynnseamstress</a>. Painting by <a href = 'https://www.instagram.com/bug.dirt/''>@Bug.dirt</a>. Cat cyanotype by <a href = 'https://www.instagram.com/xglue/''>@xGlue</a>.</span>";
+            document.getElementById("itemsIMG").style.visibility = "visible";
+            document.getElementById("items3").style.backgroundColor = "white";
+            document.getElementById("itemsText").style.display = "block";
+            document.getElementById("qText").style.display = "none";
+        }
+        function outfitsLink(hotSpotDiv, args) {
+            document.getElementById("items2").style.display = "block";
+            document.getElementById("itemsIMG").src = "shelvesIMG/outfits.jpg";
+            document.getElementById("itemsText").innerHTML = "<span>Costumes. (links coming eventually).</span>";
+            document.getElementById("itemsIMG").style.visibility = "visible";
+            document.getElementById("items3").style.backgroundColor = "white";
+            document.getElementById("itemsText").style.display = "block";
+            document.getElementById("qText").style.display = "none";
+        }
+        function shelvesLink(hotSpotDiv, args) {
+            window.open("https://fangknife.github.io/TheShelves/Right.html", "_self")
+        }
     </script>
 
     <script>
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             document.getElementById("panorama").style.cssText = "position: fixed; left: 4vw; top: 12.5vh; width: 92vw; height: 75vh;"
+            document.getElementById("items2").style.cssText = "height: 90vh; width: 95vw ; left: 2.5vw; top: 5vh;"
         } else {
-            document.getElementById("panorama").style.cssText =
-            "position: fixed; left: 10vw; top: 5vh; width: 80vw; height: 90vh;"
+            document.getElementById("panorama").style.cssText = "position: fixed; left: 10vw; top: 5vh; width: 80vw; height: 90vh;"
         }
-
-
-
     </script>
-
-
-    width: 80vw;
-    height: 90vh;
 
 
 
