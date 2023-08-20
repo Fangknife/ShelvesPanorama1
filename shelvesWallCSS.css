@@ -389,3 +389,14 @@ body {
 	left: 37%;
 	cursor: pointer;
 }
+.wallVWClipDiv {
+	position: absolute;
+	clip-path: url(#wallVWClip);
+	height: 29%;
+	width: 24%;
+	top: 46.5%;
+	left: 37.2%;
+	display: none;
+	z-index: 20;
+	cursor: pointer;
+}
